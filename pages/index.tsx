@@ -1,31 +1,11 @@
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
-
-const useTheme = () => ({ setTheme: (color: "green") => {} });
-
-const PageHeader = ({ showNameplate }: { showNameplate: boolean }) => <></>;
-
-const PageTitle = ({ title, topSpace }: { title: string; topSpace: boolean }) => <div>{title}</div>;
-
-const PageFooter = () => <>copyright 2022 james</>;
-
-const HomeIntro = ({
-  top,
-  bottom,
-  side
-}: {
-  top: React.ReactNode;
-  bottom: React.ReactNode;
-  side: React.ReactNode;
-}) => (
-  <>
-    <div>{top}</div>
-    <div>{bottom}</div>
-    <div>{side}</div>
-  </>
-);
+import { HomeIntro } from "../src/components/home/HomeIntro";
+import { PageFooter } from "../src/components/page/PageFooter";
+import { PageHeader } from "../src/components/page/PageHeader";
+import { PageTitle } from "../src/components/page/PageTitle";
+import { Section } from "../src/components/page/Section";
+import { useTheme } from "../src/hooks/ThemeProvider";
 
 const md = (string: TemplateStringsArray) => <>{string}</>;
 
@@ -57,16 +37,6 @@ const projects: Project[] = [
   }
 ];
 
-const Section = ({
-  background,
-  title,
-  children
-}: {
-  background: "offset" | "none";
-  title: string;
-  children: React.ReactNode;
-}) => <div>{children}</div>;
-
 const SeeMoreLink = ({ href }: { href: string }) => (
   <div>
     <Link href={href}>See more →</Link>
@@ -82,28 +52,7 @@ export default function Home() {
     <div>
       <PageHeader showNameplate={true} />
       <PageTitle title="Hi, I'm James!" topSpace={false} />
-      <HomeIntro
-        top={md`
-I'm a software engineer and design enthusiast.
-
-I'm interested in how people interact with technology. I want to make software that makes the digital world friendly and intuitive.
-        `}
-        bottom={md`
-I work at Stripe on the Docs team, where I do web platform engineering and web design. Previously, I built in-person payment experiences for Stripe Terminal and worked on the Stripe Dashboard iOS app.
-
-I started at Stripe after graduating from Bowdoin College in Brunswick, Maine, where I majored in Computer Science, built a website for the student newspaper, and made robots play soccer.
-
-Today, I live in Boston, Massachusetts.
-        `}
-        side={
-          <Image
-            src="https://files.jameslittle.me/images/headshot.jpg"
-            width="400"
-            height="600"
-            alt="my dumb mug"
-          ></Image>
-        }
-      />
+      <HomeIntro />
       <Section background="offset" title="Blog">
         <ul>
           {blogposts.map((post) => (
