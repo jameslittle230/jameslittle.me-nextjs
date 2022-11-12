@@ -1,7 +1,10 @@
+const withMarkdoc = require("@markdoc/next.js");
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig = withMarkdoc({ mode: "static" })({
   reactStrictMode: true,
   swcMinify: true,
+  pageExtensions: ["tsx", "md"],
   images: {
     remotePatterns: [
       {
@@ -11,6 +14,6 @@ const nextConfig = {
     ],
     unoptimized: true
   }
-};
+});
 
 module.exports = nextConfig;

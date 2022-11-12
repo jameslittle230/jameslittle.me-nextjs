@@ -45,12 +45,13 @@ const SeeMoreLink = ({ href }: { href: string }) => (
 
 const BlogPostListItem = ({ post }: { post: BlogPost }) => <li>{post.id}</li>;
 const ProjectListItem = ({ project }: { project: Project }) => <li>{project.name}</li>;
-export default function Home() {
+
+export default () => {
   const { setTheme } = useTheme();
   setTheme("green");
   return (
-    <div>
-      <PageHeader showNameplate={true} />
+    <>
+      <PageHeader />
       <PageTitle title="Hi, I'm James!" topSpace={false} />
       <HomeIntro />
       <Section background="offset" title="Blog">
@@ -62,7 +63,7 @@ export default function Home() {
         <SeeMoreLink href="/blog" />
       </Section>
 
-      <Section background="none" title="Projects">
+      <Section title="Projects">
         <ul>
           {projects.map((project) => (
             <ProjectListItem project={project} key={project.id} />
@@ -72,6 +73,6 @@ export default function Home() {
       </Section>
 
       <PageFooter />
-    </div>
+    </>
   );
-}
+};

@@ -1,0 +1,11 @@
+body {
+  --green-hue: 144;
+  --blue-hue: 210;
+  --orange-hue: 40;
+
+  --color-background: hsla(var(--theme-hue), 41%, 31%);
+  --offset-background: hsla(var(--theme-hue), 4%, 85%);
+  --surface-background: hsla(var(--theme-hue), 0%, 100%);
+  --text-color: hsla(var(--theme-hue), 0%, 17%);
+  --reverse-text-color: hsla(var(--theme-hue), 0%, 100%);
+}

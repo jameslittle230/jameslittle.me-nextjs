@@ -1,0 +1,62 @@
+@use "reset";
+@use "colors";
+@use "typography";
+@use "grid";
+
+.racing-stripe {
+  height: 0.7em;
+  width: 100%;
+}
+
+.blog-post-aside {
+  background: var(--offset-background);
+  font-size: 0.9em;
+  padding: 1em;
+  border-radius: 8px;
+
+  p {
+    margin: 0;
+  }
+}
+
+.page-title {
+  font-size: clamp(3.5rem, 2.5rem + 3vw, 4.5rem);
+  font-family: "Alright";
+  font-weight: 900;
+  font-style: italic;
+  color: white;
+  margin: 0;
+}
+
+.page-title-top-space {
+  margin-top: 10vh;
+}
+
+.nameplate {
+  font-family: "Alright";
+  font-size: 1.5rem;
+  margin-bottom: 0.3em;
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+.page-header-nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page-header-list-item,
+.page-header-nav li {
+  display: inline;
+  margin-right: 2em;
+  font-family: "Alright";
+  text-transform: lowercase;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}

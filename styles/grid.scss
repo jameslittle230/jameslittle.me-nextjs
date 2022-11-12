@@ -1,0 +1,39 @@
+:root {
+  --grid-gutter-size: 2rem;
+  --grid-column-gap: 1.5rem;
+  --grid-center-lane-size: 56rem;
+}
+
+.full-width-wrap {
+  width: 100%;
+  padding: 1.25rem 0;
+  display: grid;
+  column-gap: var(--grid-column-gap);
+  grid-template-columns:
+    1fr var(--grid-gutter-size) min(
+      var(--grid-center-lane-size),
+      calc(100% - (var(--grid-gutter-size) * 2) - (var(--grid-column-gap) * 2))
+    )
+    var(--grid-gutter-size) 1fr;
+}
+
+.full-width-wrap-no-padding {
+  padding: 0;
+}
+
+.subgrid {
+  display: grid;
+  column-gap: var(--grid-column-gap);
+}
+
+.left-weighted-subgrid {
+  grid-template-columns: 18fr 7fr;
+}
+
+.right-weighted-subgrid {
+  grid-template-columns: 7fr 18fr;
+}
+
+.center-weighted-subgrid {
+  grid-template-columns: 1fr 1fr;
+}
