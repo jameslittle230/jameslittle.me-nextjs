@@ -1,0 +1,25 @@
+@layer component {
+  .footer-top-content {
+    font-size: 1.15em;
+    margin-bottom: 3em;
+  }
+
+  .footer-bottom-content {
+    font-size: 0.95em;
+  }
+
+  .footer-colophon {
+    //   padding-left: 20%;
+    text-align: right;
+  }
+
+  .footer {
+    a {
+      color: currentColor;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}

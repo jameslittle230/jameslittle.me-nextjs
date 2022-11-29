@@ -1,0 +1,30 @@
+@layer components {
+  .blog-post-preview {
+    margin-bottom: 2rem;
+  }
+
+  .blog-post-preview-title {
+    font-family: "Alright";
+    font-size: 1.6rem;
+    margin-bottom: 0.4em;
+
+    & + p {
+      margin-top: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: currentcolor;
+
+      &:hover {
+        color: var(--color-background);
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .blog-post-preview-date {
+    font-family: "Alright";
+    color: var(--muted-text-color);
+  }
+}

@@ -1,34 +1,21 @@
+import classnames from "classnames";
 import Head from "next/head";
 import Link from "next/link";
+import { platform } from "os";
 import { HomeIntro } from "../src/components/home/HomeIntro";
 import { PageFooter } from "../src/components/page/PageFooter";
 import { PageHeader } from "../src/components/page/PageHeader";
 import { PageTitle } from "../src/components/page/PageTitle";
 import { Section } from "../src/components/page/Section";
 import { useTheme } from "../src/hooks/ThemeProvider";
-
-const md = (string: TemplateStringsArray) => <>{string}</>;
-
-type BlogPost = {
-  id: string;
-  date: string;
-};
+import { fileService } from "../src/markdoc/fetch-files";
+import { BlogPost, DehydratedBlogPost } from "../src/models/blog-post";
+import { BlogPostPreview } from "./blog";
 
 type Project = {
   id: string;
   name: string;
 };
-
-const blogposts: BlogPost[] = [
-  {
-    id: "asdf",
-    date: "2022-11-08"
-  },
-  {
-    id: "foo",
-    date: "2022-11-08"
-  }
-];
 
 const projects: Project[] = [
   {
@@ -38,28 +25,41 @@ const projects: Project[] = [
 ];
 
 const SeeMoreLink = ({ href }: { href: string }) => (
-  <div>
-    <Link href={href}>See more →</Link>
+  <div className="read-more-link">
+    <Link href={href}>Read more →</Link>
   </div>
 );
 
-const BlogPostListItem = ({ post }: { post: BlogPost }) => <li>{post.id}</li>;
 const ProjectListItem = ({ project }: { project: Project }) => <li>{project.name}</li>;
 
-export default () => {
-  const { setTheme } = useTheme();
-  setTheme("green");
+export async function getServerSideProps(_context: any) {
+  let blogPosts = [...(await fileService.listFiles(BlogPost.directory))];
+  blogPosts = blogPosts.reverse().splice(0, 5);
+  const posts = blogPosts.map((p) => {
+    let s = p.serialize();
+    delete s.ast;
+    delete s.renderableTree;
+    return s;
+  });
+  return {
+    props: { posts }
+  };
+}
+
+export default function Home({ posts }: { posts: DehydratedBlogPost[] }) {
+  const blogPosts: BlogPost[] = posts.map((p: any) => BlogPost.hydrate(p));
   return (
     <>
       <PageHeader />
       <PageTitle title="Hi, I'm James!" topSpace={false} />
+
       <HomeIntro />
+
       <Section background="offset" title="Blog">
-        <ul>
-          {blogposts.map((post) => (
-            <BlogPostListItem post={post} key={post.id} />
-          ))}
-        </ul>
+        <h2 className={"section-title"}>Blog</h2>
+        {blogPosts.map((post) => (
+          <BlogPostPreview post={post} />
+        ))}
         <SeeMoreLink href="/blog" />
       </Section>
 
@@ -75,4 +75,4 @@ export default () => {
       <PageFooter />
     </>
   );
-};
+}

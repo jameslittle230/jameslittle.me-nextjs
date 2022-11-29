@@ -1,12 +1,18 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-}
+@layer reset {
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+  }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  position: relative;
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    position: relative;
+  }
+
+  img {
+    max-width: 100%;
+  }
 }

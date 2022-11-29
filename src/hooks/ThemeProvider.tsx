@@ -20,6 +20,7 @@ export const ThemeProvider = ({ children }: { children: any }) => {
     <ThemeContext.Provider value={{ theme, setTheme }}>
       <Head>
         <style>{`body {--theme-hue: var(--${theme}-hue)}`}</style>
+        <meta name="theme-color" content="#4285f4"></meta>
       </Head>
       {children}
     </ThemeContext.Provider>

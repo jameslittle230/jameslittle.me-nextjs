@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Grid, Subgrid, Left, Right } from "../grid";
+import { RacingStripe } from "../RacingStripe";
 export const HomeIntro = () => (
   <>
     <Grid background="color" style={{ paddingTop: "3rem" }}>
@@ -24,6 +25,7 @@ export const HomeIntro = () => (
             width="400"
             height="600"
             alt="my dumb mug"
+            priority
             style={{
               zIndex: 20,
               borderRadius: "12px",
@@ -35,18 +37,8 @@ export const HomeIntro = () => (
         </Right>
       </Subgrid>
     </Grid>
-    <div
-      className="racing-stripe"
-      style={{
-        backgroundColor: "hsla(var(--theme-hue), 41%, 41%)"
-      }}
-    />
-    <div
-      className="racing-stripe"
-      style={{
-        backgroundColor: "hsla(var(--theme-hue), 41%, 61%)"
-      }}
-    />
+    <RacingStripe level={40} />
+    <RacingStripe level={20} />
     <Grid>
       <Subgrid weight="center">
         <Left style={{ fontSize: "1.1em" }}>

@@ -3,33 +3,63 @@
 @use "typography";
 @use "grid";
 
-.racing-stripe {
-  height: 0.7em;
-  width: 100%;
+@use "components/blog-post-preview";
+@use "components/page-title";
+@use "components/page-footer";
+@use "components/racing-stripe";
+
+@layer reset, defaults, components;
+
+body {
+  --vertical-rhythm: 1.4em;
 }
 
 .blog-post-aside {
   background: var(--offset-background);
-  font-size: 0.9em;
+
   padding: 1em;
   border-radius: 8px;
 
   p {
     margin: 0;
   }
+
+  a {
+    color: currentColor;
+  }
 }
 
-.page-title {
-  font-size: clamp(3.5rem, 2.5rem + 3vw, 4.5rem);
+.blog-post-aside-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-self: end;
+}
+
+.section-title {
+  font-size: clamp(3rem, 2.5rem + 3vw, 4rem);
   font-family: "Alright";
   font-weight: 900;
   font-style: italic;
-  color: white;
-  margin: 0;
+  color: hsla(0, 0%, 0%, 50%);
+  margin-bottom: 0.4em;
 }
 
-.page-title-top-space {
-  margin-top: 10vh;
+.read-more-link {
+  display: flex;
+  flex-direction: row-reverse;
+  font-family: "Alright";
+  font-size: 1.3rem;
+  color: var(--color-background);
+
+  a {
+    color: currentColor;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 .nameplate {

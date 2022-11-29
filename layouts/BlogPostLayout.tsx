@@ -1,21 +1,32 @@
 import Markdoc from "@markdoc/markdoc";
+import Link from "next/link";
 import React from "react";
 import { Grid, Left, Right, Subgrid } from "../src/components/grid";
 import { PageFooter } from "../src/components/page/PageFooter";
 import { PageHeader } from "../src/components/page/PageHeader";
 import { PageTitle } from "../src/components/page/PageTitle";
+import { BlogPost } from "../src/models/blog-post";
 
-export const BlogPostLayout = ({ title, markdoc }: { markdoc: any; title: string }) => {
-  const content = Markdoc.renderers.react(markdoc, React);
+export const BlogPostLayout = ({ prev, post }: { prev: BlogPost | null; post: BlogPost }) => {
+  if (!post.renderableTree) {
+    throw new Error("");
+  }
+  const content = Markdoc.renderers.react(post.renderableTree, React);
 
   return (
     <>
       <PageHeader />
-      <PageTitle title={title} topSpace={true} />
+      <PageTitle title={post.metadata.title} subtitle={post.formattedDate()} topSpace={true} />
 
       <Grid>
         <Subgrid weight={"right"}>
-          <Left style={{ alignSelf: "end" }}>
+          <Right>{content}</Right>
+          <Left className="blog-post-aside-container">
+            {prev ? (
+              <div className="blog-post-aside">
+                <b>Previous:</b> <Link href={prev.href()}>{prev.metadata.title}</Link>
+              </div>
+            ) : null}
             <div className="blog-post-aside">
               <p>
                 I'm James Little, a software engineer and design enthusiast based in Boston, MA. I
@@ -24,7 +35,6 @@ export const BlogPostLayout = ({ title, markdoc }: { markdoc: any; title: string
               </p>
             </div>
           </Left>
-          <Right>{content}</Right>
         </Subgrid>
       </Grid>
 

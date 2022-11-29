@@ -1,0 +1,12 @@
+@layer components {
+  .racing-stripe {
+    height: 0.7em;
+    width: 100%;
+  }
+
+  @for $i from 1 through 8 {
+    .racing-stripe-#{$i * 10} {
+      background-color: var(--color-#{$i * 10});
+    }
+  }
+}

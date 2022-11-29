@@ -1,7 +1,13 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FullWidth, Grid } from "../grid";
+import { FullWidth, Grid, Gutter } from "../grid";
+import Search from "../../icons/search.svg";
 import classnames from "classnames";
+import { Icon } from "../icon";
+import { useState } from "react";
+import Head from "next/head";
+import { useTheme } from "../../hooks/ThemeProvider";
+import { RacingStripe } from "../RacingStripe";
 
 const NavListItem = ({ href, children }: any) => {
   const router = useRouter();
@@ -13,38 +19,51 @@ const NavListItem = ({ href, children }: any) => {
   );
 };
 
+const NavBar = () => (
+  <nav>
+    <ul className="page-header-nav">
+      <NavListItem href="/blog">Blog</NavListItem>
+      <NavListItem href="/projects">Projects</NavListItem>
+      <NavListItem href="/photos">Photos</NavListItem>
+      <NavListItem href="/talks">Talks</NavListItem>
+      <li>•</li>
+      <NavListItem href="/now">Now</NavListItem>
+      <NavListItem href="/uses">Uses</NavListItem>
+      <NavListItem href="/read">Read</NavListItem>
+      <li>•</li>
+      <NavListItem href="/guestbook">Guestbook</NavListItem>
+    </ul>
+  </nav>
+);
+
+const SearchBar = () => <p>search bar</p>;
+
 export const PageHeader = () => {
   const router = useRouter();
+  const { theme } = useTheme();
+  const [searchVisible, setSearchVisible] = useState(false);
   return (
     <>
-      <div
-        className="racing-stripe"
-        style={{
-          backgroundColor: "hsla(var(--theme-hue), 41%, 21%)",
-          height: "1em"
-        }}
-      />
-      <Grid background="color" noPadding={true}>
+      <RacingStripe level={60} />
+      <Grid background="color" padding="none">
+        <Gutter side="left" style={{ display: "flex", flexDirection: "column-reverse" }}>
+          {/* <button
+            onClick={() => {
+              setSearchVisible(!searchVisible);
+            }}
+          >
+            <Icon style={{ fill: "white", opacity: "0.4" }}>
+              <Search />
+            </Icon>
+          </button> */}
+        </Gutter>
         <FullWidth style={{ paddingTop: "2.5rem" }}>
           {router.pathname !== "/" ? (
             <div className="nameplate">
               <Link href="/">jameslittle.me</Link>
             </div>
           ) : null}
-          <nav>
-            <ul className="page-header-nav">
-              <NavListItem href="/blog">Blog</NavListItem>
-              <NavListItem href="/projects">Projects</NavListItem>
-              <NavListItem href="/projects">Photos</NavListItem>
-              <NavListItem href="/projects">Talks</NavListItem>
-              <li>•</li>
-              <NavListItem href="/projects">Now</NavListItem>
-              <NavListItem href="/projects">Uses</NavListItem>
-              <NavListItem href="/projects">Read</NavListItem>
-              <li>•</li>
-              <NavListItem href="/projects">Guestbook</NavListItem>
-            </ul>
-          </nav>
+          {searchVisible ? <SearchBar /> : <NavBar />}
         </FullWidth>
       </Grid>
     </>

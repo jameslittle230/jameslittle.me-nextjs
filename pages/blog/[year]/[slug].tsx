@@ -1,12 +1,13 @@
 import { BlogPostLayout } from "../../../layouts/BlogPostLayout";
 import { fileService } from "../../../src/markdoc/fetch-files";
+import { BlogPost, DehydratedBlogPost } from "../../../src/models/blog-post";
 
 export async function getStaticPaths() {
-  const blogFiles = await fileService.fetch("content/blog");
+  const blogPost = await fileService.listFiles(BlogPost.directory);
 
-  const paths = blogFiles.map(({ frontmatter }) => {
+  const paths = blogPost.map((b) => {
     return {
-      params: { year: new Date(frontmatter.date).getFullYear().toString(), slug: frontmatter.slug }
+      params: b.staticPath()
     };
   });
 
@@ -16,18 +17,46 @@ export async function getStaticPaths() {
   };
 }
 
-export async function getStaticProps(context: any) {
-  const blogFiles = await fileService.fetch("content/blog");
+export async function getStaticProps(
+  context: any
+): Promise<{ props: { prev: DehydratedBlogPost | null; post: DehydratedBlogPost } }> {
+  const blogPosts = await fileService.listFiles(BlogPost.directory);
 
-  const pageData = blogFiles.filter((file) => file.frontmatter.slug === context.params.slug)[0];
+  const {
+    params: { year, slug }
+  } = context;
 
-  console.log(pageData);
+  const postIndex = blogPosts.findIndex((b) => b.matches(year, slug));
 
-  return {
-    props: { title: pageData.frontmatter.title, content: JSON.stringify(pageData.renderableTree) }
-  };
+  if (postIndex === -1) {
+    throw new Error("Post not found");
+  }
+
+  if (postIndex === 0) {
+    return {
+      props: {
+        prev: null,
+        post: blogPosts[postIndex].serialize()
+      }
+    };
+  } else {
+    return {
+      props: {
+        prev: blogPosts[postIndex - 1].serialize(),
+        post: blogPosts[postIndex].serialize()
+      }
+    };
+  }
 }
 
-export default function Post({ title, content }: any) {
-  return <BlogPostLayout title={title} markdoc={JSON.parse(content)} />;
+export default function Post({
+  prev,
+  post
+}: {
+  prev: DehydratedBlogPost | null;
+  post: DehydratedBlogPost;
+}) {
+  const blogPost = BlogPost.hydrate(post);
+  const prevBlogPost = prev ? BlogPost.hydrate(prev) : null;
+  return <BlogPostLayout prev={prevBlogPost} post={blogPost} />;
 }

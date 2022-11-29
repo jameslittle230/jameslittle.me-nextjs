@@ -3,9 +3,21 @@ body {
   --blue-hue: 210;
   --orange-hue: 40;
 
-  --color-background: hsla(var(--theme-hue), 41%, 31%);
-  --offset-background: hsla(var(--theme-hue), 4%, 85%);
+  --color-10: hsla(var(--theme-hue), 27%, 81%);
+  --color-20: hsla(var(--theme-hue), 31%, 65%);
+  --color-30: hsla(var(--theme-hue), 29%, 51%);
+  --color-40: hsla(var(--theme-hue), 38%, 40%);
+  --color-50: hsla(var(--theme-hue), 46%, 30%);
+  --color-60: hsla(var(--theme-hue), 51%, 22%);
+  --color-70: hsla(var(--theme-hue), 56%, 15%);
+  --color-80: hsla(var(--theme-hue), 57%, 8%);
+
+  --color-background: var(--color-50);
+  --dark-color-background: var(--color-70);
+  --offset-background: hsla(var(--theme-hue), 4%, 92%);
   --surface-background: hsla(var(--theme-hue), 0%, 100%);
-  --text-color: hsla(var(--theme-hue), 0%, 17%);
-  --reverse-text-color: hsla(var(--theme-hue), 0%, 100%);
+  --text-color: hsla(var(--theme-hue), 2%, 17%);
+  --muted-text-color: hsla(var(--theme-hue), 7%, 7%, 50%);
+  --reverse-text-color: hsla(var(--theme-hue), 6%, 98%);
+  --muted-reverse-text-color: hsla(var(--theme-hue), 7%, 93%, 70%);
 }

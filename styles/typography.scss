@@ -1,51 +1,116 @@
-body {
-  font-family: "Equity A", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
-    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  color: var(--text-color);
-  font-size: 18px;
-}
-
-.reverse-text-color {
-  color: var(--reverse-text-color);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Alright";
-  color: hsla(var(--theme-hue), 20%, 20%);
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-ul,
-ol,
-p {
-  margin: 0;
-
-  &:not(:first-child) {
-    margin-top: 1.4em;
+@layer defaults {
+  body {
+    font-family: "Equity A", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+      Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    color: var(--text-color);
+    font-size: 18px;
   }
 
-  &:not(:last-child) {
-    margin-bottom: 1.4em;
+  .reverse-text-color {
+    color: var(--reverse-text-color);
   }
-}
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  &:not(:first-child) {
-    margin-top: 1em;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Alright";
+    color: hsla(var(--theme-hue), 20%, 20%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  ul,
+  ol,
+  p {
+    margin: 0;
+
+    &:not(:first-child) {
+      margin-top: var(--vertical-rhythm);
+    }
+
+    &:not(:last-child) {
+      margin-bottom: var(--vertical-rhythm);
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    &:not(:first-child) {
+      margin-top: calc(var(--vertical-rhythm) * 1.333);
+      margin-bottom: calc(var(--vertical-rhythm) * 0.5);
+    }
+
+    & + * {
+      margin-top: 0 !important;
+    }
+  }
+
+  article {
+    font-size: 1.125em;
+    line-height: 1.4;
+    --vertical-rhythm: 1.5em;
+
+    li {
+      margin-bottom: calc(var(--vertical-rhythm) * 0.25);
+
+      &::marker {
+        color: var(--muted-text-color);
+        font-weight: bold;
+      }
+
+      & > ul,
+      & > ol {
+        margin-top: calc(var(--vertical-rhythm) * 0.25);
+      }
+    }
+
+    > * {
+      max-width: 100%;
+    }
+
+    pre {
+      background: var(--color-80);
+      color: var(--reverse-text-color);
+      padding: 1em;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 0.75em;
+    }
+
+    code {
+      font-size: 0.8em;
+    }
+
+    pre,
+    code {
+      font-family: "JetBrains Mono";
+    }
+  }
+
+  a {
+    color: var(--color-40);
+
+    &:hover {
+      color: var(--color-30);
+    }
+
+    &:visited {
+      color: var(--color-60);
+    }
+
+    &:active {
+      color: var(--color-50);
+    }
   }
 }
