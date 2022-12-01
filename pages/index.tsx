@@ -32,7 +32,7 @@ const SeeMoreLink = ({ href }: { href: string }) => (
 
 const ProjectListItem = ({ project }: { project: Project }) => <li>{project.name}</li>;
 
-export async function getServerSideProps(_context: any) {
+export async function getStaticProps(_context: any) {
   let blogPosts = [...(await fileService.listFiles(BlogPost.directory))];
   blogPosts = blogPosts.reverse().splice(0, 5);
   const posts = blogPosts.map((p) => {

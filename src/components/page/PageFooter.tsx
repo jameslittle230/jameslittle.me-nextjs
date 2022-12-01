@@ -25,7 +25,7 @@ export const PageFooter = () => (
               ", ",
               <a href="https://github.com/jameslittle230">Github</a>,
               ", ",
-              <a href="https://linkedin.com/james-little-230">LinkedIn</a>,
+              <a href="https://www.linkedin.com/in/james-little-230/">LinkedIn</a>,
               ", ",
               <a href="https://twitch.tv/jameslittle230">Twitch</a>
             ]}
