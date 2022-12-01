@@ -1,13 +1,9 @@
-import classnames from "classnames";
-import Head from "next/head";
 import Link from "next/link";
-import { platform } from "os";
 import { HomeIntro } from "../src/components/home/HomeIntro";
 import { PageFooter } from "../src/components/page/PageFooter";
 import { PageHeader } from "../src/components/page/PageHeader";
 import { PageTitle } from "../src/components/page/PageTitle";
 import { Section } from "../src/components/page/Section";
-import { useTheme } from "../src/hooks/ThemeProvider";
 import { fileService } from "../src/markdoc/fetch-files";
 import { BlogPost, DehydratedBlogPost } from "../src/models/blog-post";
 import { BlogPostPreview } from "./blog";
@@ -58,7 +54,7 @@ export default function Home({ posts }: { posts: DehydratedBlogPost[] }) {
       <Section background="offset" title="Blog">
         <h2 className={"section-title"}>Blog</h2>
         {blogPosts.map((post) => (
-          <BlogPostPreview post={post} />
+          <BlogPostPreview key={JSON.stringify(post.staticPath)} post={post} />
         ))}
         <SeeMoreLink href="/blog" />
       </Section>

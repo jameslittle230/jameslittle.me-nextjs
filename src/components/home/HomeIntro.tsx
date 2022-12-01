@@ -6,9 +6,9 @@ export const HomeIntro = () => (
     <Grid background="color" style={{ paddingTop: "3rem" }}>
       <Subgrid weight="center">
         <Left style={{ fontSize: "1.3em" }}>
-          <p>I'm a software engineer and design enthusiast.</p>
+          <p>I&apos;m a software engineer and design enthusiast.</p>
           <p>
-            I'm interested in how people interact with technology. I want to make software that
+            I&apos;m interested in how people interact with technology. I want to make software that
             makes the digital world friendly and intuitive.
           </p>
         </Left>

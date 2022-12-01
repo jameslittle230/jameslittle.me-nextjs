@@ -31,6 +31,7 @@
     "@svgr/webpack": "^6.5.1",
     "@types/js-yaml": "^4.0.5",
     "@types/styled-components": "^5.1.26",
+    "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.7.1",
     "sass": "^1.56.1"
   }
