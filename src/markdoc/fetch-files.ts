@@ -6,6 +6,8 @@ import { BlogPost } from "../models/blog-post";
 
 const fs = require("mz/fs");
 
+const CACHE_ENABLED = false;
+
 // declare function assert(value: unknown): asserts value;
 
 export type Frontmatter = {
@@ -24,10 +26,13 @@ class FileService {
 
   constructor() {}
 
-  getFile = async (directory: Directory, slug: string): Promise<ContentFile> => {
+  getFile = async (
+    directory: Directory,
+    slug: string
+  ): Promise<ContentFile> => {
     let files = [];
 
-    if (this.files[directory]) {
+    if (CACHE_ENABLED && this.files[directory]) {
       files = this.files[directory];
     } else {
       const remoteFetchedFiles = await this.fetchFromFilesystem(directory);
@@ -53,7 +58,7 @@ class FileService {
   listFiles = async (directory: Directory): Promise<ContentFile[]> => {
     let files = [];
 
-    if (this.files[directory]) {
+    if (CACHE_ENABLED && this.files[directory]) {
       files = this.files[directory];
     } else {
       const remoteFetchedFiles = await this.fetchFromFilesystem(directory);
@@ -64,11 +69,16 @@ class FileService {
     return files;
   };
 
-  private fetchFromFilesystem = async (directory: Directory): Promise<ContentFile[]> => {
+  private fetchFromFilesystem = async (
+    directory: Directory
+  ): Promise<ContentFile[]> => {
     const files = await fs.readdir(directory);
     const objects: ContentFile[] = await Promise.all(
       files.map(async (filename: string): Promise<ContentFile> => {
-        const source = await fs.readFile(path.join(directory, filename), "utf-8");
+        const source = await fs.readFile(
+          path.join(directory, filename),
+          "utf-8"
+        );
 
         const ast = Markdoc.parse(source);
 
@@ -76,15 +86,18 @@ class FileService {
           ? yaml.load(ast.attributes.frontmatter, { schema: JSON_SCHEMA })
           : {};
 
-        if (directory == BlogPost.directory) {
-          return new BlogPost({ ast, metadata: frontmatter });
+        switch (directory) {
+          case BlogPost.directory:
+            return new BlogPost({ ast, metadata: frontmatter });
         }
 
         throw new Error("");
       })
     );
 
-    objects.sort((a, b) => a.metadata.date.getTime() - b.metadata.date.getTime());
+    objects.sort(
+      (a, b) => a.metadata.date.getTime() - b.metadata.date.getTime()
+    );
     return objects;
   };
 }

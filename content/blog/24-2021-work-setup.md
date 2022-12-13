@@ -13,13 +13,13 @@ I'll spare you most of my feelings about my transition to remote employment, exc
 
 Anyway. I'm remote now, and Stripe gives its remote employees a bit of money to set up their workspace. I find these types of post interesting, and I feel like I've done well with my setup and it might be worth sharing. Here's how I set up my area of the office.
 
-{% image "2021-desk-post/DSC05389.jpg" %}
+{% image src="2021-desk-post/DSC05389.jpg" /%}
 
 ## The Desk
 
-<div style="width: 50%; margin-right: 2em; float: left;">
-{% image "2021-desk-post/DSC05387.jpg" %}
-</div>
+{% figure layout="half-left"}
+{% image src="2021-desk-post/DSC05387.jpg" /%}
+{% /figure %}
 
 The desk itself is a [butcher block from Home Depot](https://www.homedepot.com/p/HARDWOOD-REFLECTIONS-Unfinished-European-Walnut-4-ft-L-x-25-in-D-x-1-5-in-T-Butcher-Block-Countertop-152550HDBW-50/304632170). It's not terribly large, just 2' x 4', but I'm the kind of person who will spread all my things over whatever size surface you give me, so I keep it small to reduce spread opportunities.[^desk] At some point during the pandemic, I put it on some sit-stand legs. They're [Fully legs](https://www.fully.com/standing-desks/jarvis-frame-only.html), but the brand doesn't matter—from what I can tell, a bunch of companies make the same sort of thing, if my YouTube recommendations are accurate. I stand in the mornings and sit when I'm tired. Sometimes I sit the whole day. They're not the most aesthetically pleasing table legs, but being able to stand sometimes keeps me marginally healthier.
 
@@ -35,27 +35,27 @@ I usually end up with two to four windows tiled on the primary monitor and two m
 
 Because my desk isn't terribly large, I try to mount as many things to its edge as I can to give myself as much usable surface space as I can. The two most important things I mount are my monitors. I use two monitors. The first is an [LG 27UL500](https://www.lg.com/us/monitors/lg-27UL500-W-4k-uhd-led-monitor), a 27" 4K monitor that was standard-issue in the Stripe offices of 2019. On its left, rotated vertically, is a [Dell P2415Q](https://pcmonitors.info/reviews/dell-p2415q/), a 24" 4K monitor that was my primary until I realized that this pandemic was probably going to last a while. They live on two independent arms clamped to the back of my desk, so they take up ~no desk space and I can use the entire area underneath them to put other stuff. I have no complaints with either (except for the fact that I only get 30 FPS on the 24" one—I think it's because I'm using an HDMI connection instead of a DisplayPort one), but I'm looking forward to the ever-rumored general purpose Apple monitor that everyone hopes is getting released soon.
 
-<div class="note">
+{% note title="March 2022 update" %}
 
-**March 2022 update:** I upgraded to an M1 Pro 14" Macbook Pro for both my personal and work computer, making the next paragraph redundant. I think I didn't find the laptop → desktop transition jarring because the 16" computers I had been using previously were so chunky that it was kind of annoying to take them from place to place. It's much nicer to have a 14" laptop that I can use from the couch or throw in my bag.
+I upgraded to an M1 Pro 14" Macbook Pro for both my personal and work computer, making the next paragraph redundant. I think I didn't find the laptop → desktop transition jarring because the 16" computers I had been using previously were so chunky that it was kind of annoying to take them from place to place. It's much nicer to have a 14" laptop that I can use from the couch or throw in my bag.
 
-</div>
+{% /note %}
 
 I have two computers on my desk: my personal computer and my work laptop. I got an M1 Mac Mini (16 GB memory, 1 TB storage) pretty much immediately after the Apple event when they were announced, and it absolutely screams through anything I throw at it. I got the Mac Mini because it was the only M1 machine that could drive two external displays. At first, I was nervous about switching to a desktop-only machine after using laptops for nearly ten years, but it hasn't been nearly as disruptive as I expected.[^laptop] My work laptop lives in a vertical stand and I pretty much constantly use it in clamshell mode, mostly to save space.
 
-{% image "2021-desk-post/DSC05397.jpg" %}
+{% image src="2021-desk-post/DSC05397.jpg" /%}
 
 Connected to that computer is a [Caldigit TS3](https://www.caldigit.com/ts3-plus/), which is a fantastic Thunderbolt hub. Every day, I take the wire coming out of the Caldigit and move it between the Mac Mini and the work laptop.[^displaycable] That Caldigit connects to my AV setup, to my wired ethernet, and to my keyboard, trackpad, and wireless mouse transponder, and gives me a place to plug in my SD cards when I need to import photos and a place to plug in extra USB stuff. This thing is rock solid and looks relatively nice-looking—I'd recommend it.
 
 ## Peripherals
 
-{% image "2021-desk-post/DSC05391.jpg" %}
+{% image src="2021-desk-post/DSC05391.jpg" /%}
 
 I don't think I have RSI, but I've definitely noticed that when I spend too much time using a trackpad or a normal-looking mouse, my right hand thumb and pointer finger start really hurting. Switching to the MX Vertical took away nearly all of that pain, so I use that as my mouse. I had some awful connection blips when I was connecting my mouse to my computer using Bluetooth, but once I plugged in a Logitech Unifying Reciever into the Caldigit TS3 and used that to bridge the wireless gap, 90% of those blips went away. I learned that I'm really sensitive to mouse connection blips—I don't notice it happening in the moment, but after a day of poor connection, I'm noticably frustrated. Thanks, Logitech Unifying Receiver.
 
 I use macOS exclusively, and there are some pretty nice affordances in that OS for trackpad use, so also use a Magic Trackpad to whip out a multifinger gesture or some smooth omnidirectional scrolling when I need it.
 
-{% image "2021-desk-post/DSC05390.jpg" %}
+{% image src="2021-desk-post/DSC05390.jpg" /%}
 
 Until only a few weeks ago, I used a white [Poker 3](https://drop.com/buy/vortex-poker-iii-compact-keyboard) with Cherry MX Clear switches, with [Massdrop xx MiTo keycaps](https://drop.com/buy/massdrop-x-mito-canvas-xda-custom-keycap-set), which I started using in 2016. Very recently, I picked up a [ZSA Moonlander](https://www.zsa.io/moonlander/) secondhand, and have been trying to integrate it into my setup to prevent myself from slouching as much while I work. I think I have a love-hate relationship with this thing: I can feel how it's ergonomically nice to use, but I have to re-learn how to type: the board's ortholinear layout messes me up with the letters, and the funky (er, custom) special character placement messes me up with everything else. I've dropped from a consistent 90 WPM to about 40 after a week of having this thing, but I'll post some updates on Twitter if I give up or go back to the Poker 3.
 
@@ -69,36 +69,36 @@ When I moved away from San Francisco, I realized that most of my interactions wi
 
 For a while, I used a Blue Yeti, but wanted to upgrade when I started getting feedback that it was very distance-sensitive (in that when I naturally moved around when talking, the volume would duck out when I moved my head farther away) but also somehow too sensitive to background noise like trucks or leafblowers. I also wanted to see if I could get better sound quality with an XLR microphone, so when I moved to Boston, I switched.
 
-{% image "2021-desk-post/IMG_5827.jpg" %}
+{% image src="2021-desk-post/IMG_5827.jpg" /%}
 
 Today, I use a [Rode PodMic](https://www.rode.com/podmic). It sounds a whole lot better than the Blue Yeti (in my opinion), and when I put the Rode pop filter over it (per [Tom Buck's suggestion](https://www.youtube.com/watch?v=NFzVwl2N0iA) I can almost imagine that it sounds like a Shure SM7B. I keep it mounted on a stand clamped to the back of my desk; the stand isn't a [Rode PSA1](https://www.bhphotovideo.com/c/product/484972-REG/Rode_PSA1_PSA_1_Studio_Boom_Arm.html?sts=pi-ps&pim=Y), but if I were to start over, that's what I would get. When I'm talking, I swing it out so it's about six inches from my mouth (unfortunately blocking my view of the vertical second monitor), but when I'm not talking it hangs out at the side of my desk.
 
-<div class="note">
+{% note title="March 2022 update" %}
 
-**March 2022 update:** When I got new computers, I put the microphone on the other side of my desk. I also got the first-party wind screen for the Podmic which makes it sound slightly nicer.
+When I got new computers, I put the microphone on the other side of my desk. I also got the first-party wind screen for the Podmic which makes it sound slightly nicer.
 
-</div>
+{% /note %}
 
 The Rode PodMic is an XLR microphone, so it needs to go into a USB audio interface to connect to my computer. It works well with the [Focusrite Scarlett Solo](https://focusrite.com/en/audio-interface/scarlett/scarlett-solo), though the Focusrite's gain knob has to be turned up to nearly the maximum. The Focusrite connects to my CalDigit dock, which connects to my computer, and it works just like any audio input. This setup has been rock solid, and I've gotten much improved reviews from people on the other end of the video calls.
 
-{% image "2021-desk-post/DSC05398.jpg" %}
+{% image src="2021-desk-post/DSC05398.jpg" /%}
 
 ### Camera
 
 When creating videos, I've learned that audio quality is much more important than video quality, so I spent most of my energy optimizing that setup. However, very recently, I was feeling the Elgato Cam Link itch, and wanted to upgrade from the Logitch webcam I was using throughout the pandemic. Instead of getting the Cam Link, I found the [KanexPro HDMI capture dongle](https://www.bhphotovideo.com/c/product/1609628-REG/kanexpro_con_gamecap_hdmi_4k_usb_2_0.html) at MicroCenter and, on a whim, connected it to the camera I use for photography: a [Sony a6300](https://www.dpreview.com/products/sony/slrs/sony_a6300). It worked perfectly—I got lucky that the Sony camera I have is one that works well when connected to a capture card, since that's not the case for all the digital cameras out there. When the Sony is hooked up to the desk setup, I obviously can't use it for photography, but it's easy enough to pop it out when I want to take some real pictures.
 
-{% image "2021-desk-post/IMG_5823.jpeg" %}
+{% image src="2021-desk-post/IMG_5823.jpeg" /%}
 
 It took me a week to troubleshoot the issues I had with using my Sony camera as a full-time webcam. I realized pretty quickly that I needed to get a dummy battery, so I had to swap camera batteries between meetings until that came in the mail. I also had issues with my camera overheating, until I removed the SD card from the camera, which seemed to stop it from shutting off mid-meeting. I know that using my camera in this way has a high potential of burning the sensor out, so I try to turn it off at the end of my workday.
 
-{% image "2021-desk-post/Zoom Screenshot.png" %}
+{% image src="2021-desk-post/Zoom Screenshot.png" /%}
 
 I also recently got a [Nanlite Compac](https://www.bhphotovideo.com/c/product/1476390-REG/nanlite_12_2003_compac_24_dimmable_5600k.html) that I've mounted on my desk as a key light. It blinds me during meetings, but the extra light helps people see me and lets me use a slower aperture (F5.6 instead of F2), which helps the camera's autofocus not hunt as much. If you're going to use a "real camera" as a webcam like this, keep it in autofocus—you might get some hunting, but it's better than irreperably dropping out of focus when you lean back.
 
 ### Headphones
 
 <div style="width: 50%; margin-right: 2em; float: left;">
-{% image "2021-desk-post/DSC05406.jpg" %}
+{% image src="2021-desk-post/DSC05406.jpg" /%}
 </div>
 
 The last part of my AV setup is audio out. Connected to the CalDigit is a [Schiit Modi](https://www.schiit.com/products/modi-1) audio interface that stacks on top of the [Schiit Magni](https://www.schiit.com/products/magni-1) headphone amp. They go into a pair of [Massdrop/Sennheiser HD 58X Jubilee headphones](https://drop.com/buy/massdrop-x-sennheiser-hd-58x-jubilee-headphones). It sounds great -- I like to listen to Apple Music's lossless tier and pretend I hear a difference.

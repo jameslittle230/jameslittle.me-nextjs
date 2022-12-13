@@ -22,10 +22,9 @@ I tweaked my Datasette Dockerfile to install a [token-based authentication plugi
 
 It's got a rolling average!
 
-<figure>
-{% image "stork-stats.png" %}
-<figcaption>I don't think I'm ready to share the y-axis here, sorry.</figcaption>
-</figure>
+{% figure caption="I don't think I'm ready to share the y-axis here, sorry." %}
+{% image src="stork-stats.png" /%}
+{% /figure %}
 
 ---
 

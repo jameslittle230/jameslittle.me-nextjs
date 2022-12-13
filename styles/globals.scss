@@ -8,6 +8,8 @@
 @use "components/page-footer";
 @use "components/racing-stripe";
 
+@use "../src/markdoc/components/note/note.scss";
+
 @layer reset, defaults, components;
 
 body {
@@ -89,4 +91,10 @@ body {
     text-decoration: none;
     color: inherit;
   }
+}
+
+hr {
+  border: none;
+  border-top: 4px solid var(--color-background);
+  border-radius: 2px;
 }

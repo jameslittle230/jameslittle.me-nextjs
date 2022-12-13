@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { PageLayout } from "../../layouts/PageLayout";
 import { Grid, Left, Right, Subgrid } from "../../src/components/grid";
-import { useTheme } from "../../src/hooks/ThemeProvider";
+import Theme from "../../src/components/Theme";
 import { ContentFile, fileService } from "../../src/markdoc/fetch-files";
 import { BlogPost, DehydratedBlogPost } from "../../src/models/blog-post";
 
@@ -15,8 +15,8 @@ export async function getStaticProps(_context: any) {
         delete s.ast;
         delete s.renderableTree;
         return s;
-      })
-    }
+      }),
+    },
   };
 }
 
@@ -39,15 +39,17 @@ export const BlogPostPreview = ({ post }: { post: BlogPost }) => {
 };
 
 export default function Home({ posts }: { posts: DehydratedBlogPost[] }) {
-  const { setTheme } = useTheme();
-  setTheme("blue");
   return (
     <PageLayout title="Blog">
+      <Theme theme="blue" />
       <Grid>
         {posts.map((p) => {
           const post = BlogPost.hydrate(p);
           return (
-            <BlogPostPreview key={`${post.formattedDate()}-${post.metadata.slug}`} post={post} />
+            <BlogPostPreview
+              key={`${post.formattedDate()}-${post.metadata.slug}`}
+              post={post}
+            />
           );
         })}
       </Grid>

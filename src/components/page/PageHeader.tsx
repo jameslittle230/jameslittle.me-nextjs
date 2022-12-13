@@ -6,7 +6,7 @@ import classnames from "classnames";
 import { Icon } from "../icon";
 import { useState } from "react";
 import Head from "next/head";
-import { useTheme } from "../../hooks/ThemeProvider";
+import { useTheme } from "../Theme";
 import { RacingStripe } from "../RacingStripe";
 
 const NavListItem = ({ href, children }: any) => {
@@ -40,7 +40,6 @@ const SearchBar = () => <p>search bar</p>;
 
 export const PageHeader = () => {
   const router = useRouter();
-  const { theme } = useTheme();
   const [searchVisible, setSearchVisible] = useState(false);
   return (
     <>

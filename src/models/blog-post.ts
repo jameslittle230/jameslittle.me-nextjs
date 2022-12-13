@@ -1,7 +1,7 @@
 import Markdoc, { Node, RenderableTreeNode } from "@markdoc/markdoc";
-import render from "@markdoc/markdoc/dist/src/renderers/html";
 import assert from "assert";
 import { Directory } from "../markdoc/fetch-files";
+import makeSchema from "../markdoc/schema";
 
 type BlogPostMetadata = {
   date: Date;
@@ -28,27 +28,28 @@ export class BlogPost {
     assert("date" in metadata, JSON.stringify(metadata));
     assert("title" in metadata);
     assert("slug" in metadata);
-    assert("blurb" in metadata, `blurb metadata value not found in ${metadata.title}`);
+    assert(
+      "blurb" in metadata,
+      `blurb metadata value not found in ${metadata.title}`
+    );
 
     this.metadata = {
       date: new Date(metadata.date),
       title: metadata.title,
       slug: metadata.slug,
-      blurb: metadata.blurb
+      blurb: metadata.blurb,
     };
 
     this.ast = ast;
 
     if (ast && renderableTree) {
-      throw new Error("BlogPost constructor can't have an AST and a renderable tree!");
+      throw new Error(
+        "BlogPost constructor can't have an AST and a renderable tree!"
+      );
     }
 
     if (ast) {
-      const config = {
-        variables: this.metadata
-      };
-
-      this.renderableTree = Markdoc.transform(ast, config);
+      this.renderableTree = Markdoc.transform(ast, makeSchema(this.metadata));
     } else if (renderableTree) {
       this.renderableTree = JSON.parse(renderableTree);
     }
@@ -59,21 +60,24 @@ export class BlogPost {
   }
 
   serialize(): DehydratedBlogPost {
-    const metadata = { ...this.metadata, date: this.metadata.date.toISOString() };
+    const metadata = {
+      ...this.metadata,
+      date: this.metadata.date.toISOString(),
+    };
     if (this.renderableTree) {
       return {
         renderableTree: JSON.stringify(this.renderableTree),
-        metadata
+        metadata,
       };
     } else if (this.ast) {
       return {
         ast: JSON.stringify(this.ast),
-        metadata
+        metadata,
       };
     }
 
     return {
-      metadata
+      metadata,
     };
   }
 

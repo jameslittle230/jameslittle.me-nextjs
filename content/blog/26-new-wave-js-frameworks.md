@@ -15,11 +15,11 @@ I wish that these frameworks would build a client bundle and a server bundle loc
 
 I think when I first started using them I was surprised that there needed to be any server deployments at all? I shouldn't need any Lambda functions to run a static site, and I don't think the feature that replaces all links with Javascript that replaces one page's DOM with another page's DOM is worth needing a whole backend. I know it makes the website faster, but still.
 
-<div class="note">
+{% note title="Update" %}
 
-**Update**: [Justin](https://www.arcana.computer) pointed out that this is a setting that Next.js supports! I think when I originally tried their Static HTML Export setting, there was some issue with deploying the final output to Netlify, but I'll have to check back in there. If you're okay being on the non-standard path and losing [some features](https://nextjs.org/docs/advanced-features/static-html-export#unsupported-features), this might be a viable choice.
+[Justin](https://www.arcana.computer) pointed out that this is a setting that Next.js supports! I think when I originally tried their Static HTML Export setting, there was some issue with deploying the final output to Netlify, but I'll have to check back in there. If you're okay being on the non-standard path and losing [some features](https://nextjs.org/docs/advanced-features/static-html-export#unsupported-features), this might be a viable choice.
 
-</div>
+{% /note %}
 
 These frameworks have powerful enough marketing arms (and sparse enough documentation) that I also can't figure out if either one is _meant for me_ or not. When I run into rough edges, nothing is there to tell me that I'm doing something wrong or that they just haven't put enough work into that part of the framework or that I'm just not the type of website builder that they're trying to capture in their potential market, because nothing incentivizes the people building these frameworks to write documentation discouraging people from using them.
 

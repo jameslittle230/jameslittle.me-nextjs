@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useEffect } from "react";
 import { HomeIntro } from "../src/components/home/HomeIntro";
 import { PageFooter } from "../src/components/page/PageFooter";
 import { PageHeader } from "../src/components/page/PageHeader";
@@ -16,8 +17,8 @@ type Project = {
 const projects: Project[] = [
   {
     id: "stork",
-    name: "Stork Search"
-  }
+    name: "Stork Search",
+  },
 ];
 
 const SeeMoreLink = ({ href }: { href: string }) => (
@@ -26,7 +27,9 @@ const SeeMoreLink = ({ href }: { href: string }) => (
   </div>
 );
 
-const ProjectListItem = ({ project }: { project: Project }) => <li>{project.name}</li>;
+const ProjectListItem = ({ project }: { project: Project }) => (
+  <li>{project.name}</li>
+);
 
 export async function getStaticProps(_context: any) {
   let blogPosts = [...(await fileService.listFiles(BlogPost.directory))];
@@ -38,7 +41,7 @@ export async function getStaticProps(_context: any) {
     return s;
   });
   return {
-    props: { posts }
+    props: { posts },
   };
 }
 
