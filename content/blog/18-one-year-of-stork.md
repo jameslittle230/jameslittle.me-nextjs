@@ -7,15 +7,15 @@ blurb: "Stork, my web search side project, is launching publicly after one year 
 
 Just before the holidays, I launched version 1.0.0 of [Stork](https://stork-search.net/), the web search library I’ve been building for just over a year. Stork is a tool for building dynamic, responsive, and native full-text search interfaces—usually only possible with a SaaS product or a web server—that can be added to static, serverless web pages. It’s free, open-source, and build-system-agnostic. It’s one of the tools I wish I had when I was starting to build websites.
 
-<div class="note">
-    <p>If you want to try a demo or read the documentation, visit Stork’s website: <a href="https://stork-search.net">https://stork-search.net</a>.</p>
-</div>
+{% note %}
+If you want to try a demo or read the documentation, visit Stork’s website: <https://stork-search.net>.
+{% /note %}
 
 Working on Stork has changed how I’ve interacted with the web development community. Stork is only successful if the people who use it find it useful and delightful. Over the past few months, I’ve pushed myself outside my comfort zone and connected with other web developers to ensure that that’s the case. For the first time, I’ve gotten to talk with people from across the internet who seemed excited about the tool I’ve built, and I’ve been able to contribute back to the web development community, an online community of creatives that has shaped how I use technology.
 
 I built Stork because I thought it should exist, but in fact, **Stork was a project I didn’t know I was capable of building until I had already built it.** A year ago, I had no experience with full-text search, with Rust or Webassembly—the two technologies that power Stork—or with open-source contribution. In this essay, I want to describe how I approached the first year of building Stork. First, I’ll describe why I built it; then, I’ll expound on full-text search and what a serverless search plugin brings to the web; finally, I’ll tell you why I’m excited for the next few years of Stork.
 
-## The Web is an Organism that We All Built Together.
+## The Web is an Organism that We All Built Together
 
 It’s hard to remember which came first: the idea for Stork, or my desire to build something (anything!) for the web development community. Web development is the corner of programming where I feel most comfortable, since it seems to foster an environment of unbounded creativity—inherent to the internet, it seems, is the idea of giving something to others. **The languages that power the web are powerful, but verbose, and this verbosity means that developers are strongly encouraged to use community-built tools to speed up their development.** Therefore, the creativity sparked by the web platform is not just first-order creativity—in the content that gets published—but also second-order creativity—in the [open source](https://www.arp242.net/open-source.html) tools that are used to publish and enhance that content. The presence, ubiquity, and power of these tools makes the web development experience a communal one instead of a solo endeavor.
 
@@ -43,15 +43,11 @@ As I said before, I released the latest version of Stork as version 1.0.0. With 
 
 In encountering different open-source projects, I’ve tried to pluck the features I feel have helped me the most. The landing page contains a demo, the current version number, and working sample code (three things that an unfortunate number of landing pages seem to omit). I’ve published the project’s roadmap, and I encourage feature requests and bug reports on Github. Most importantly, though, I’m writing about Stork with a human touch, with the hope that the people who interact with the project can better recognize that there’s a coder behind the code.
 
-I’m actively looking for people to try Stork in their own site and give me feedback. It might not be there yet (though it might be for you!), but I believe that Stork can be an easy, flexible solution to anyone who wants to implement web search, and I’m excited to put in the work to make it so. That said, Stork is far from complete. My scratchpad is pages long[^2], and I plan to continue building features and enhancements for a while. As I see it, Stork will be useful until it’s irrelevant, and will be relevant until people stop building Jamstack-based sites. I’m also banking on the community to help me: feature requests, bug reports, and other communication has already helped Stork become a better tool, and I’m excited to see what further contributions the community will add to Stork.
+I’m actively looking for people to try Stork in their own site and give me feedback. It might not be there yet (though it might be for you!), but I believe that Stork can be an easy, flexible solution to anyone who wants to implement web search, and I’m excited to put in the work to make it so. That said, Stork is far from complete. My scratchpad is pages long {% footnote %}Features I’m excited to build include: 1) mutating index files from the command line instead of creating a new one, 2) fetching documents from the web, and 3) using web workers so that the WASM computation doesn’t crush the main thread.{% /footnote %}, and I plan to continue building features and enhancements for a while. As I see it, Stork will be useful until it’s irrelevant, and will be relevant until people stop building Jamstack-based sites. I’m also banking on the community to help me: feature requests, bug reports, and other communication has already helped Stork become a better tool, and I’m excited to see what further contributions the community will add to Stork.
 
 If you’re interested in learning more about Stork, here are some links:
 
 - The project’s page, including a demo: <https://stork-search.net>
 - The project on Github: <https://github.com/jameslittle230/stork>
 
----
-
 _Thanks to [Julian Lehr](https://twitter.com/lehrjulian) and [Ben Guo](https://twitter.com/bgdotjpg) for reviewing early versions of this post._
-
-[^2]: Features I’m excited to build include: 1) mutating index files from the command line instead of creating a new one, 2) fetching documents from the web, and 3) using web workers so that the WASM computation doesn’t crush the main thread.

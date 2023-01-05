@@ -2,26 +2,15 @@
 title: "Learning and Making"
 date: 2018-06-24
 slug: learning-making
-outdated: true
 blurb: "What kinds of personal projects help you learn best? When can they stall learning? When should you build in order to learn, and when should you build in order to have something built at the end?"
 ---
 
-I’ve been working on a crossword puzzle creator for about three years, and I can’t tell whether it’s close to done or barely even started.
-In that time, the project has morphed into a personal playground in which I experiment with new, experimental web technologies.
-In practical terms, this means I’ve been restarting the project fairly regularly, using a new web framework each time.
-I've learned how to solve the same problem five different ways.
-I've rewritten entire UIs as my design chops have improved.
-I've been learning, but I haven't made any progress.[^1]
+I’ve been working on a crossword puzzle creator for about three years, and I can’t tell whether it’s close to done or barely even started. In that time, the project has morphed into a personal playground in which I experiment with new, experimental web technologies. In practical terms, this means I’ve been restarting the project fairly regularly, using a new web framework each time.
+I've learned how to solve the same problem five different ways. I've rewritten entire UIs as my design chops have improved. I've been learning, but I haven't made any progress. {% footnote %}Which leads to fun problems such as _”I know I wrote a JSON puzzle parser at some point, but where did it go?”_{% /footnote %}
 
-When I realized that this cyclical development was getting problematic, I stepped back and looked at what I was doing.
-This project had become solely devoted to my own learning: I wasn't building a crossword puzzle anymore, I was using the application design for my own education.
-My having fallen into this hole wasn't necessarily a bad thing; in fact, there are benefits to experimenting with unknown technologies using a known problem domain.
-The question, therefore, becomes: _which project ideas are better suited as vehicles for learning, and which are better suited for working to completion?_
+When I realized that this cyclical development was getting problematic, I stepped back and looked at what I was doing. This project had become solely devoted to my own learning: I wasn't building a crossword puzzle anymore, I was using the application design for my own education. My having fallen into this hole wasn't necessarily a bad thing; in fact, there are benefits to experimenting with unknown technologies using a known problem domain. The question, therefore, becomes: _which project ideas are better suited as vehicles for learning, and which are better suited for working to completion?_
 
-<!--more-->
-
-I’ve found that the best tech playgrounds — these venues for experimenting with new tools, concepts, and techniques — are exciting projects with limited (but flexible) scope, that come from ideas you haven’t put any stake in.
-In other words, productive programming involves separating the learning from the making as much as possible.
+I’ve found that the best tech playgrounds — these venues for experimenting with new tools, concepts, and techniques — are exciting projects with limited (but flexible) scope, that come from ideas you haven’t put any stake in. In other words, productive programming involves separating the learning from the making as much as possible.
 
 ## It's easy to get mixed up
 
@@ -64,5 +53,3 @@ However, the familiarity that surrounds me while I’m working on a project lets
 
 As I work on personal projects in the future, I'll try to think about the goal of the project: am I building this to create, or am I building this to learn?
 Regardless of the decision—since there is time for both—I'll work with the goal of learning or making as exclusively as possible.
-
-[^1]: Which leads to fun problems such as _”I know I wrote a JSON puzzle parser at some point, but where did it go?”_

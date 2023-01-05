@@ -2,11 +2,9 @@ import { Background, FullWidth, Grid } from "../grid";
 
 export const Section = ({
   background,
-  title,
-  children
+  children,
 }: {
   background?: Background;
-  title: string;
   children: React.ReactNode;
 }) => (
   <Grid background={background}>

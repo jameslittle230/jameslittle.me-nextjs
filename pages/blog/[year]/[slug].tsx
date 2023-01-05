@@ -3,27 +3,31 @@ import { fileService } from "../../../src/markdoc/fetch-files";
 import { BlogPost, DehydratedBlogPost } from "../../../src/models/blog-post";
 
 export async function getStaticPaths() {
-  const blogPost = await fileService.listFiles(BlogPost.directory);
+  const blogPosts = (await fileService.listFiles(
+    BlogPost.directory
+  )) as BlogPost[];
 
-  const paths = blogPost.map((b) => {
+  const paths = blogPosts.map((b) => {
     return {
-      params: b.staticPath()
+      params: b.staticPath(),
     };
   });
 
   return {
     paths,
-    fallback: false
+    fallback: false,
   };
 }
 
-export async function getStaticProps(
-  context: any
-): Promise<{ props: { prev: DehydratedBlogPost | null; post: DehydratedBlogPost } }> {
-  const blogPosts = await fileService.listFiles(BlogPost.directory);
+export async function getStaticProps(context: any): Promise<{
+  props: { prev: DehydratedBlogPost | null; post: DehydratedBlogPost };
+}> {
+  const blogPosts = (await fileService.listFiles(
+    BlogPost.directory
+  )) as BlogPost[];
 
   const {
-    params: { year, slug }
+    params: { year, slug },
   } = context;
 
   const postIndex = blogPosts.findIndex((b) => b.matches(year, slug));
@@ -36,22 +40,22 @@ export async function getStaticProps(
     return {
       props: {
         prev: null,
-        post: blogPosts[postIndex].serialize()
-      }
+        post: blogPosts[postIndex].serialize(),
+      },
     };
   } else {
     return {
       props: {
         prev: blogPosts[postIndex - 1].serialize(),
-        post: blogPosts[postIndex].serialize()
-      }
+        post: blogPosts[postIndex].serialize(),
+      },
     };
   }
 }
 
 export default function Post({
   prev,
-  post
+  post,
 }: {
   prev: DehydratedBlogPost | null;
   post: DehydratedBlogPost;

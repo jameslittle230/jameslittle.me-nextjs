@@ -5,13 +5,11 @@ slug: tensorflow-object-detection
 blurb: "A guide to setting up a Tensorflow Object Detection system and training it with your own self-annotated data."
 ---
 
-I’ve been working on image object detection for [my senior thesis](https://honors.jameslittle.me/) at [Bowdoin](https://www.bowdoin.edu/computer-science/index.html) and have been unable to find a tutorial that describes, at a low enough level (i.e. with code samples), how to set up the [Tensorflow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection) and train a model with a custom dataset. This aims to be that tutorial: the one I wish I could have found three months ago.
-
-<!--more-->
+I’ve been working on image object detection for my senior thesis at [Bowdoin](https://www.bowdoin.edu/computer-science/index.html) and have been unable to find a tutorial that describes, at a low enough level (i.e. with code samples), how to set up the [Tensorflow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection) and train a model with a custom dataset. This aims to be that tutorial: the one I wish I could have found three months ago.
 
 ## Background
 
-I don’t know much about advanced Machine Learning concepts, and I know even less about Tensorflow. If you’re like me, you’ve heard of Tensorflow as the best Machine Learning framework available today[^1], and you want to use it for a very specific use case (in my case, object detection). You also don’t want to spend months studying what seem to be Tensorflow-specific vocabulary and concepts.
+I don’t know much about advanced Machine Learning concepts, and I know even less about Tensorflow. If you’re like me, you’ve heard of Tensorflow as the best Machine Learning framework available today{% footnote %}Don’t @ me{% /footnote %}, and you want to use it for a very specific use case (in my case, object detection). You also don’t want to spend months studying what seem to be Tensorflow-specific vocabulary and concepts.
 
 Similarly, if you’re like me, you have some familiarity with Linux and Python. I’m a programmer more than I am an ML researcher, and you’ll probably grok this article most if you’re in the same boat.
 
@@ -126,13 +124,13 @@ For completion’s sake, I also include the line `export LD_LIBRARY_PATH=$LD_LIB
 
 ## Step Two: Preparing the Datasets
 
-Since the API we’re using is based on object detection, you’ll need to have a dataset you want to work with. This dataset should be comprised of images and annotations in whatever format you choose: I had JPGs numbered `0.jpg` through `9999.jpg` and a CSV file with the coordinates of the objects I’m detecting.[^2]
+Since the API we’re using is based on object detection, you’ll need to have a dataset you want to work with. This dataset should be comprised of images and annotations in whatever format you choose: I had JPGs numbered `0.jpg` through `9999.jpg` and a CSV file with the coordinates of the objects I’m detecting. {% footnote %}Getting this dataset and figuring out how to annotate it is up to you — since we’re dealing with _your_ dataset here, it wouldn’t make sense for me to give you instructions for doing this.{% /footnote %}
 
-{% image "files.png" %}
+{% image "files.png" /%}
 
 For each object in an image, you should have `x1`, `x2`, `y1` and `y2` coordinates available, where `(x1, y1)` is the upper left corner of the rectangle and `(x2, y2)` is the lower right corner of the rectangle.
 
-{% image "box.png" %}
+{% image "box.png" /%}
 
 You’ll probably have two of these datasets, one large one for training and one smaller one for testing. We’ll be taking the two datasets and transforming each of them into [`.tfrecord` files:](https://medium.com/mostly-ai/tensorflow-records-what-they-are-and-how-to-use-them-c46bc4bbb564) large binary files that contain a complete representation of the entire dataset.
 
@@ -463,6 +461,3 @@ I clearly looked up a lot of ways other people were doing this. Unfortunately, d
 - This [toy detector tutorial](https://deeplearninganalytics.org/blog/building-toy-detector-with-object-detection-api) by Priya Dwivedi
 - [This Medium article](https://medium.com/@WuStangDan/step-by-step-tensorflow-object-detection-api-tutorial-part-1-selecting-a-model-a02b6aabe39e) by Daniel Stang, and [its sequel](https://medium.com/@WuStangDan/step-by-step-tensorflow-object-detection-api-tutorial-part-2-converting-dataset-to-tfrecord-47f24be9248d)
 - An [O’Reilly article](https://www.oreilly.com/ideas/object-detection-with-tensorflow) by Justin Francis
-
-[^1]: Don’t @ me
-[^2]: Getting this dataset and figuring out how to annotate it is up to you — since we’re dealing with _your_ dataset here, it wouldn’t make sense for me to give you instructions for doing this.

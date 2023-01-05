@@ -13,21 +13,19 @@ I'll spare you most of my feelings about my transition to remote employment, exc
 
 Anyway. I'm remote now, and Stripe gives its remote employees a bit of money to set up their workspace. I find these types of post interesting, and I feel like I've done well with my setup and it might be worth sharing. Here's how I set up my area of the office.
 
+{% figure layout="wide" caption="The whole thing" %}
 {% image src="2021-desk-post/DSC05389.jpg" /%}
+{% /figure %}
 
 ## The Desk
 
-{% figure layout="half-left"}
+{% figure layout="wide-half-left" %}
 {% image src="2021-desk-post/DSC05387.jpg" /%}
 {% /figure %}
 
-The desk itself is a [butcher block from Home Depot](https://www.homedepot.com/p/HARDWOOD-REFLECTIONS-Unfinished-European-Walnut-4-ft-L-x-25-in-D-x-1-5-in-T-Butcher-Block-Countertop-152550HDBW-50/304632170). It's not terribly large, just 2' x 4', but I'm the kind of person who will spread all my things over whatever size surface you give me, so I keep it small to reduce spread opportunities.[^desk] At some point during the pandemic, I put it on some sit-stand legs. They're [Fully legs](https://www.fully.com/standing-desks/jarvis-frame-only.html), but the brand doesn't matter—from what I can tell, a bunch of companies make the same sort of thing, if my YouTube recommendations are accurate. I stand in the mornings and sit when I'm tired. Sometimes I sit the whole day. They're not the most aesthetically pleasing table legs, but being able to stand sometimes keeps me marginally healthier.
-
-<!-- Cable management underneath photo -->
+The desk itself is a [butcher block from Home Depot](https://www.homedepot.com/p/HARDWOOD-REFLECTIONS-Unfinished-European-Walnut-4-ft-L-x-25-in-D-x-1-5-in-T-Butcher-Block-Countertop-152550HDBW-50/304632170). It's not terribly large, just 2' x 4', but I'm the kind of person who will spread all my things over whatever size surface you give me, so I keep it small to reduce spread opportunities. {% footnote %}Also, it was the largest desk that fit in our San Francisco apartment.{% /footnote %} At some point during the pandemic, I put it on some sit-stand legs. They're [Fully legs](https://www.fully.com/standing-desks/jarvis-frame-only.html), but the brand doesn't matter—from what I can tell, a bunch of companies make the same sort of thing, if my YouTube recommendations are accurate. I stand in the mornings and sit when I'm tired. Sometimes I sit the whole day. They're not the most aesthetically pleasing table legs, but being able to stand sometimes keeps me marginally healthier.
 
 The problem with sit-stand desks is that it makes cable-management about five times more difficult. The best cable-management system I've found (that [MKBHD mentioned](https://www.youtube.com/watch?v=pkuxIy3kFZM) in his 2021 studio tour) is setting everything up when the desk is standing, bundling all the cables that go down to the ground with velcro ties, and then letting that big cord of cables bend when the desk lowers. To reduce the number of cables I have that go down to the ground, I've mounted a power strip to the underside of my desk, and mounted cable catchers around the power strip, so ideally the only wires snaking down from my desk to the ground is power and ethernet. The cable catchers are a mess, but they're not terribly visible, so luckily I can forget about the bad cable management until I have to make adjustments.
-
-<!-- Back edge mount photo -->
 
 ## Monitors & Computers
 
@@ -41,11 +39,13 @@ I upgraded to an M1 Pro 14" Macbook Pro for both my personal and work computer, 
 
 {% /note %}
 
-I have two computers on my desk: my personal computer and my work laptop. I got an M1 Mac Mini (16 GB memory, 1 TB storage) pretty much immediately after the Apple event when they were announced, and it absolutely screams through anything I throw at it. I got the Mac Mini because it was the only M1 machine that could drive two external displays. At first, I was nervous about switching to a desktop-only machine after using laptops for nearly ten years, but it hasn't been nearly as disruptive as I expected.[^laptop] My work laptop lives in a vertical stand and I pretty much constantly use it in clamshell mode, mostly to save space.
+I have two computers on my desk: my personal computer and my work laptop. I got an M1 Mac Mini (16 GB memory, 1 TB storage) pretty much immediately after the Apple event when they were announced, and it absolutely screams through anything I throw at it. I got the Mac Mini because it was the only M1 machine that could drive two external displays. At first, I was nervous about switching to a desktop-only machine after using laptops for nearly ten years, but it hasn't been nearly as disruptive as I expected.{% footnote %}I still keep my old laptop kicking around when I really need it, but the aforementioned pandemic has reduced the number of times I need to bring a computer from place to place. Once that computer dies, I'll pick up one of the new Macbook Pros—you should be impressed with the self-control I've exhibited in not buying one yet.{% /footnote %} My work laptop lives in a vertical stand and I pretty much constantly use it in clamshell mode, mostly to save space.
 
+{% figure layout="wide" %}
 {% image src="2021-desk-post/DSC05397.jpg" /%}
+{% /figure %}
 
-Connected to that computer is a [Caldigit TS3](https://www.caldigit.com/ts3-plus/), which is a fantastic Thunderbolt hub. Every day, I take the wire coming out of the Caldigit and move it between the Mac Mini and the work laptop.[^displaycable] That Caldigit connects to my AV setup, to my wired ethernet, and to my keyboard, trackpad, and wireless mouse transponder, and gives me a place to plug in my SD cards when I need to import photos and a place to plug in extra USB stuff. This thing is rock solid and looks relatively nice-looking—I'd recommend it.
+Connected to that computer is a [Caldigit TS3](https://www.caldigit.com/ts3-plus/), which is a fantastic Thunderbolt hub. Every day, I take the wire coming out of the Caldigit and move it between the Mac Mini and the work laptop. {% footnote %}Technically, I also switch the input on the vertical 24" monitor from DisplayPort to HDMI. See, the M1 Mac Mini can only power two monitors if they're both connected to the on-device IO, so I keep an HDMI cable between that monitor and the Mac Mini, and a DisplayPort --> USB-C cable between it and the work laptop. It's fine, but I'd be excited to upgrade to a personal computer that can drive two monitors from the Caldigit so I'd only have to do _literally one thing_ to switch between the two machines.{% /footnote %} That Caldigit connects to my AV setup, to my wired ethernet, and to my keyboard, trackpad, and wireless mouse transponder, and gives me a place to plug in my SD cards when I need to import photos and a place to plug in extra USB stuff. This thing is rock solid and looks relatively nice-looking—I'd recommend it.
 
 ## Peripherals
 
@@ -63,7 +63,7 @@ I absolutely love having a keyboard I can configure. ZSA hosts a tool called [Or
 
 ## AV
 
-When I moved away from San Francisco, I realized that most of my interactions with people at work would take place on a video call[^twitch], so it was important to me that I level up my video call setup. (I also was really into filmmaking at one point in my life, so investing in my video call setup would scratch the audio & video gear itch that never really seems to go away). I want people to hear and see me well so that they don't feel removed when talking to me, and I kind of like flexing with my nice setup.
+When I moved away from San Francisco, I realized that most of my interactions with people at work would take place on a video call {% footnote %}I also [infrequently stream live-coding on Twitch](https://twitch.tv/jameslittle230), so investing in the AV desk setup helps there, too.{% /footnote %}, so it was important to me that I level up my video call setup. (I also was really into filmmaking at one point in my life, so investing in my video call setup would scratch the audio & video gear itch that never really seems to go away). I want people to hear and see me well so that they don't feel removed when talking to me, and I kind of like flexing with my nice setup.
 
 ### Microphone
 
@@ -97,9 +97,9 @@ I also recently got a [Nanlite Compac](https://www.bhphotovideo.com/c/product/14
 
 ### Headphones
 
-<div style="width: 50%; margin-right: 2em; float: left;">
+{% figure layout="wide-half-left" %}
 {% image src="2021-desk-post/DSC05406.jpg" /%}
-</div>
+{% /figure %}
 
 The last part of my AV setup is audio out. Connected to the CalDigit is a [Schiit Modi](https://www.schiit.com/products/modi-1) audio interface that stacks on top of the [Schiit Magni](https://www.schiit.com/products/magni-1) headphone amp. They go into a pair of [Massdrop/Sennheiser HD 58X Jubilee headphones](https://drop.com/buy/massdrop-x-sennheiser-hd-58x-jubilee-headphones). It sounds great -- I like to listen to Apple Music's lossless tier and pretend I hear a difference.
 
@@ -121,8 +121,3 @@ A few more things I keep full-time on my desk:
 For me, I've tried prioritizing so that my setup makes me do my best work. It should encourage me to work on the stuff that brings me the most joy, and should reduce the friction to get into and maintain a flow state (or hyperfocus, as the case may be, if my ADHD diagnosis from eight years ago still holds up). I think I'm mostly there? I have the tools I need (and then some) to do work for my job and spend some time on personal projects afterwards, and I have enough gadgets and toys that I can keep myself engaged and drawn in. I've turned my space into one that's really good for video communication, so my experience with computers is less solitary. I'm happy with how I've set things up in 2021, and I'm excited to see how the space will evolve in the year to come.
 
 If you've read this far, thank you!
-
-[^desk]: Also, it was the largest desk that fit in our San Francisco apartment.
-[^laptop]: I still keep my old laptop kicking around when I really need it, but the aforementioned pandemic has reduced the number of times I need to bring a computer from place to place. Once that computer dies, I'll pick up one of the new Macbook Pros—you should be impressed with the self-control I've exhibited in not buying one yet.
-[^displaycable]: Technically, I also switch the input on the vertical 24" monitor from DisplayPort to HDMI. See, the M1 Mac Mini can only power two monitors if they're both connected to the on-device IO, so I keep an HDMI cable between that monitor and the Mac Mini, and a DisplayPort --> USB-C cable between it and the work laptop. It's fine, but I'd be excited to upgrade to a personal computer that can drive two monitors from the Caldigit so I'd only have to do _literally one thing_ to switch between the two machines.
-[^twitch]: I also [infrequently stream live-coding on Twitch](https://twitch.tv/jameslittle230), so investing in the AV desk setup helps there, too.

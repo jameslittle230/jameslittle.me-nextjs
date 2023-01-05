@@ -85,11 +85,6 @@
       border-radius: 1em;
     }
 
-    .wide-layout {
-      width: calc(139% + var(--grid-column-gap));
-      margin-left: calc(-39% - var(--grid-column-gap));
-    }
-
     pre {
       background: var(--color-80);
       color: var(--reverse-text-color);
@@ -97,6 +92,7 @@
       border-radius: 1em;
       overflow-x: auto;
       font-size: 0.75em;
+      max-height: 60vh;
     }
 
     code {

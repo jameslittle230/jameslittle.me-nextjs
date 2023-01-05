@@ -1,11 +1,12 @@
 import Markdoc from "@markdoc/markdoc";
 import Link from "next/link";
 import React from "react";
-import { Grid, Left, Right, Subgrid } from "../src/components/grid";
+import { FullWidth, Grid, Left, Right, Subgrid } from "../src/components/grid";
 import { PageFooter } from "../src/components/page/PageFooter";
 import { PageHeader } from "../src/components/page/PageHeader";
 import { PageTitle } from "../src/components/page/PageTitle";
 import { components } from "../src/markdoc/components/index";
+import Note from "../src/markdoc/components/note/note";
 import { BlogPost } from "../src/models/blog-post";
 
 export const BlogPostLayout = ({
@@ -32,6 +33,13 @@ export const BlogPostLayout = ({
       />
 
       <Grid>
+        <FullWidth>
+          {post.metadata.outdated ? (
+            <Note title={"This post is outdated!"}>
+              {post.metadata.outdated}
+            </Note>
+          ) : null}
+        </FullWidth>
         <Subgrid weight={"right"}>
           <Right>{content}</Right>
           <Left className="blog-post-aside-container">

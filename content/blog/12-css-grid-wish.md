@@ -2,6 +2,7 @@
 title: "Something I wish CSS Grid did, but it doesn't"
 date: 2020-02-01
 slug: css-grid-wish
+outdated: "I believe [Subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_layout/Subgrid) includes the behavior I describe. Since writing this, though, I've built this layout several times using negative margin and CSS variables."
 blurb: "Can I, just, like, complain for a second? Thanks."
 ---
 

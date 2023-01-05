@@ -10,10 +10,13 @@
     padding: 3rem 0;
     display: grid;
     column-gap: var(--grid-column-gap);
+    row-gap: 1em;
     grid-template-columns:
       1fr var(--grid-gutter-size) min(
         var(--grid-center-lane-size),
-        calc(100% - (var(--grid-gutter-size) * 2) - (var(--grid-column-gap) * 2))
+        calc(
+          100% - (var(--grid-gutter-size) * 2) - (var(--grid-column-gap) * 2)
+        )
       )
       var(--grid-gutter-size) 1fr;
   }

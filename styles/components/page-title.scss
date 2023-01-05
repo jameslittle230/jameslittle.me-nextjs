@@ -16,6 +16,11 @@
     font-family: "Alright";
     color: var(--muted-reverse-text-color);
     font-size: 1.3em;
-    margin: 0.75em 0 0;
+  }
+
+  .page-title-flex-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
   }
 }

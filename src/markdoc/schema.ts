@@ -1,6 +1,7 @@
+import { Config } from "@markdoc/markdoc";
 import { tags } from "./components";
 
-const schema = {
+const schema: Config = {
   nodes: {},
   tags,
   variables: {},
@@ -8,7 +9,7 @@ const schema = {
   partials: {},
 };
 
-const makeSchema = (variables: Record<string, any>) => {
+const makeSchema = (variables: Record<string, any>): Config => {
   return {
     ...schema,
     variables: {

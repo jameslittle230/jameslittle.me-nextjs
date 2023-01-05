@@ -44,7 +44,7 @@ I've written a script that will run all my tests and output a JSON blob with a s
 }
 ```
 
-It's important that this script be able to run in CI successfully for every commit so that I can run this on any arbitrary commit[^1] and get results representative of the state of the world at that moment in Git history. Therefore, I've made it a requirement that this script return successful output in CI for every pull request; if it can't run or doesn't succeed, I treat that as a unit test failure and Github won't let me merge the PR. When combined with a strict "only squash-and-merge allowed" policy, this means that, for every commit on `master`, I can know that I can run my benchmarking script and it will succeed.
+It's important that this script be able to run in CI successfully for every commit so that I can run this on any arbitrary commit {% footnote %}Any arbitrary commit _after I've added this script_, of course.{% /footnote %} and get results representative of the state of the world at that moment in Git history. Therefore, I've made it a requirement that this script return successful output in CI for every pull request; if it can't run or doesn't succeed, I treat that as a unit test failure and Github won't let me merge the PR. When combined with a strict "only squash-and-merge allowed" policy, this means that, for every commit on `master`, I can know that I can run my benchmarking script and it will succeed.
 
 ## Compare measurements automatically
 
@@ -59,7 +59,7 @@ I've built (er, cobbled together from multiple sources) a script that runs in CI
 5. Runs a script to compare the JSON blobs in the two tempfiles, determining the percentage change for each of the values
 6. Comments on the PR with those percent changes, letting me judge the impact of the PR. (There's some fanciness where it'll update the comment if it sees that it's already commented.)
 
-{% image "data-driven-pull-requests/github-comment.png" %}
+{% image src="data-driven-pull-requests/github-comment.png" /%}
 
 You might be asking, "Why does the CI job need to run the script twice? Isn't it already running the script for every commit? Can't it save those values somewhere?"
 
@@ -82,5 +82,3 @@ In summary: data is good, and it feels exciting to drive metrics in one directio
 - [This script runs the benchmarks—both Criterion and filesize—and outputs a JSON object.](https://github.com/jameslittle230/stork/blob/714698991465328fc06cef2654a2cff9d88ce71c/scripts/generate_stats.py)
 - [This script compares two JSON objects and generates the HTML for a Github comment.](https://github.com/jameslittle230/stork/blob/714698991465328fc06cef2654a2cff9d88ce71c/scripts/compare_stats.py)
 - [This part of my Github Actions file orchestrates the benchmark runs, runs the comparison script, and publishes the Github PR comment.](https://github.com/jameslittle230/stork/blob/714698991465328fc06cef2654a2cff9d88ce71c/.github/workflows/ci-on-push.yml#L122-L159)
-
-[^1]: Any arbitrary commit _after I've added this script_, of course.

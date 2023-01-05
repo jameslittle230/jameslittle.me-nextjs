@@ -1,51 +1,58 @@
 import Link from "next/link";
-import { useEffect } from "react";
+import { BlogPostPreview } from "../src/components/BlogPostPreview";
 import { HomeIntro } from "../src/components/home/HomeIntro";
 import { PageFooter } from "../src/components/page/PageFooter";
 import { PageHeader } from "../src/components/page/PageHeader";
 import { PageTitle } from "../src/components/page/PageTitle";
 import { Section } from "../src/components/page/Section";
+import { ProjectPreview } from "../src/components/ProjectPreview";
 import { fileService } from "../src/markdoc/fetch-files";
 import { BlogPost, DehydratedBlogPost } from "../src/models/blog-post";
-import { BlogPostPreview } from "./blog";
+import { DehydratedProject, Project } from "../src/models/project";
 
-type Project = {
-  id: string;
-  name: string;
-};
-
-const projects: Project[] = [
-  {
-    id: "stork",
-    name: "Stork Search",
-  },
-];
-
-const SeeMoreLink = ({ href }: { href: string }) => (
+const SeeMoreLink = ({ href, verb }: { href: string; verb?: string }) => (
   <div className="read-more-link">
-    <Link href={href}>Read more →</Link>
+    <Link href={href}>{verb || "Read"} more →</Link>
   </div>
 );
 
-const ProjectListItem = ({ project }: { project: Project }) => (
-  <li>{project.name}</li>
-);
-
 export async function getStaticProps(_context: any) {
-  let blogPosts = [...(await fileService.listFiles(BlogPost.directory))];
-  blogPosts = blogPosts.reverse().splice(0, 5);
+  let blogPosts = [
+    ...(await fileService.listFiles(BlogPost.directory)),
+  ] as BlogPost[];
+
+  blogPosts = blogPosts.splice(0, 5);
   const posts = blogPosts.map((p) => {
     let s = p.serialize();
     delete s.ast;
     delete s.renderableTree;
     return s;
   });
+
+  let projects = [
+    ...(await fileService.listFiles(Project.directory)),
+  ] as Project[];
+
+  projects = projects.splice(0, 5);
+  const displayProjects = projects.map((p) => {
+    let s = p.serialize();
+    delete s.ast;
+    delete s.renderableTree;
+    return s;
+  });
+
   return {
-    props: { posts },
+    props: { posts, displayProjects },
   };
 }
 
-export default function Home({ posts }: { posts: DehydratedBlogPost[] }) {
+export default function Home({
+  posts,
+  displayProjects,
+}: {
+  posts: DehydratedBlogPost[];
+  displayProjects: DehydratedProject[];
+}) {
   const blogPosts: BlogPost[] = posts.map((p: any) => BlogPost.hydrate(p));
   return (
     <>
@@ -54,7 +61,7 @@ export default function Home({ posts }: { posts: DehydratedBlogPost[] }) {
 
       <HomeIntro />
 
-      <Section background="offset" title="Blog">
+      <Section background="offset">
         <h2 className={"section-title"}>Blog</h2>
         {blogPosts.map((post) => (
           <BlogPostPreview key={JSON.stringify(post.staticPath)} post={post} />
@@ -62,13 +69,14 @@ export default function Home({ posts }: { posts: DehydratedBlogPost[] }) {
         <SeeMoreLink href="/blog" />
       </Section>
 
-      <Section title="Projects">
-        <ul>
-          {projects.map((project) => (
-            <ProjectListItem project={project} key={project.id} />
+      <Section>
+        <h2 className={"section-title"}>Projects</h2>
+        <div className="projects-grid">
+          {displayProjects.map((project) => (
+            <ProjectPreview project={project} key={project.metadata.slug} />
           ))}
-        </ul>
-        <SeeMoreLink href="/projects" />
+        </div>
+        <SeeMoreLink href="/projects" verb="See" />
       </Section>
 
       <PageFooter />

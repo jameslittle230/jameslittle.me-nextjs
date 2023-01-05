@@ -1,8 +1,8 @@
-import Markdoc, { Node, Tag } from "@markdoc/markdoc";
+import { Node, Tag } from "@markdoc/markdoc";
 
 const image = {
   render: "Image",
-  attributes: { src: { type: "String" } },
+  attributes: { src: { type: "String" }, alt: { type: "String" } },
   transform: (node: Node, config: any) => {
     const attributes = node.transformAttributes(config);
     attributes.src = `https://files.jameslittle.me/images/${attributes.src}`;

@@ -7,8 +7,6 @@ blurb: "I recently sunsetted a project because the thing already existed. If I n
 
 I was working on a project called [Splitt](https://splitt.xyz), which was meant to be an interface for figuring out, for a given group of people, who owes money to whom. One person could pay for something, add it to Splitt, and then over time Splitt would reconcile the transactions between the people in the group. My girlfriend and I had a complicated spreadsheet going to do this, and I wanted to build something that did the same thing with a nicer interface and a better data model. I eventually wanted to publicize it, give it a nagware business model like Sublime Text, and have it become a Successful Side Project™. Today, I'm killing it and wanted to write about why.
 
-<!--more-->
-
 I thought it would be a good way to get practice _making something_: particularly something that has a robust UI, a solid REST API that could be consumed by the two clients (Vue on web, and a never-really-finished iOS app), and a good backend data structure. I thought of the idea in the summer (in the shower, where all good ideas originate) and started working on it a few days later. It'd be a good idea, I remember thinking, to get some backend practice in before [starting at Stripe](https://jameslittle.me/blog/2019/next).
 
 I never really checked to see if there was anything like this out there already. When I had something working and showed it to my coworkers, they were very curious about how it compared to [Splitwise](https://www.splitwise.com/), an app I hadn't heard of but probably should have. Turns out Splitwise is basically everything I had wanted Splitt to become—if I had seen Splitt's roadmap through, there wouldn't have been much functional difference between it and Splitwise.

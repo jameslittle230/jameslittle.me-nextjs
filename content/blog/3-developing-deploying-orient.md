@@ -2,7 +2,7 @@
 title: "Developing and Deploying bowdoinorient.com"
 date: 2018-09-14
 slug: developing-deploying-orient
-outdated: true
+outdated: "This system isn't in use anymore, and I believe the best option now would be something like Github Codespaces."
 blurb: "An outline of the system I built to spin up temporary, easily-hacked-on versions of bowdoinorient.com"
 ---
 
@@ -20,8 +20,6 @@ that we could avoid those disadvantages and fulfill other requirements while
 using the best best practices I know of. Furthermore, I wrote it in Ruby to
 familiarize myself with the language used most often at
 [Stripe](https://stripe.com), where I interned this past summer.
-
-<!--more-->
 
 ## The problem
 
@@ -64,7 +62,7 @@ and show users how to synchronize code between their local machine and the
 server.
 
 When a new instance is created, the Running on a VPS is a Ruby application that
-keeps track of development environments, or <em>devenv</em>s. When a new _devenv_ is
+keeps track of development environments, or _devenv_ s. When a new _devenv_ is
 made, the user specifies a subdomain, and the application performs a series of
 setup steps:
 

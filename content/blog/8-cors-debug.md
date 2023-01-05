@@ -1,21 +1,19 @@
 ---
 title: "My Thought Process while Debugging a CORS error"
 date: 2019-08-24
-slug: cors-debug
+slug: ["debugging-cors", "cors-debug"]
 blurb: "Piggybacking on the previous post, a stream-of-thought post describing my own process for fixing a CORS error. Ends up as a Cloudfront configuration debugging session."
 ---
 
-I've been thinking ([and writing](/blog/2019/cors-1)) about CORS recently because there's (as of this writing) a CORS error on the [Bowdoin Orient's site](https://bowdoinorient.com). The stylesheets for loading the Orient's fonts are coming up with a CORS error in the Firefox console, while the Chrome console shows CORS errors for both the stylesheet and the font files.
+I've been thinking ([and writing](/blog/2019/cors)) about CORS recently because there's (as of this writing) a CORS error on the [Bowdoin Orient's site](https://bowdoinorient.com). The stylesheets for loading the Orient's fonts are coming up with a CORS error in the Firefox console, while the Chrome console shows CORS errors for both the stylesheet and the font files.
 
 I thought the solution would be fairly easy, but a quick diagnostic showed that it's a little more complicated than originally expected. As I write this, I'm not sure what needs to be changed to fix the issue, but I'm going to try to outline my thought process while I debug it.
 
-<div class="note"><p>
-    
-Post-debug update: this ended up being more of an AWS configuration issue than a CORS issue, but I'm still leaving it up to show how I got here. CORS bugs require that you know about your specific HTTP server, about browser security policies, and about different ways HTTP requests can be made; throughout this process, I had to tap into all of those.
+{% note title="Post-debug update" %}
 
-</p></div>
+This ended up being more of an AWS configuration issue than a CORS issue, but I'm still leaving it up to show how I got here. CORS bugs require that you know about your specific HTTP server, about browser security policies, and about different ways HTTP requests can be made; throughout this process, I had to tap into all of those.
 
-<!--more-->
+{% /note %}
 
 - Is this really even a problem? The site looks fine to me—the fonts are showing up fine.
 - My computer has the Orient fonts downloaded locally, so maybe the browser is finding the fonts there. I should check on a different computer.
@@ -50,7 +48,7 @@ Post-debug update: this ended up being more of an AWS configuration issue than a
   x-amz-cf-id: {maybe this should be censored too??}
   ```
 
-- I checked AWS and the bucket _should_ have CORS set up on it. The [CORS troubleshooting documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors-troubleshooting.html)[^1] says there need to be certain criteria met before the CORS-related headers are included in the response.
+- I checked AWS and the bucket _should_ have CORS set up on it. The [CORS troubleshooting documentation](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors-troubleshooting.html){% footnote %}My goodness this page was a slog to find. And it's not even that helpful.{% /footnote %} says there need to be certain criteria met before the CORS-related headers are included in the response.
 - I wonder what happens when only use an `Origin` header.
 
   ```bash
@@ -89,24 +87,20 @@ Post-debug update: this ended up being more of an AWS configuration issue than a
   - `Origin`
   - `Referer`
 - Now none of my CURL requests are giving me any CORS headers in the response; even the ones that used to work
-- But the CORS error is gone from Firefox now.[^2]
+- But the CORS error is gone from Firefox now. {% footnote %}This was the most confusing part of debugging. Why does it work in the browser but the proper headers don't show up in CURL?{% /footnote %}
 - And from Chrome.
 - After clearing the browser cache, the page looks fine on my girlfriend's computer. I think I fixed this.
 - I wonder if I need to clear the Cloudfront cache or add a cachebusting query onto the `<link>` tag? Eh, seems like a lot of work, maybe not worth it if everything looks ok.
 - The end.
 
-<div class="note"><p>
-    
-Update from the next day: It looks like my `orient-fonts.css` file is being requested twice: once from the `<link>` tag and once as an XHR request so that [EQCSS](https://elementqueries.com/) can analyze the stylesheets and render the element queries properly. It's those link tag requests that have the CORS headers, but the XHR requests do not.
+{% note title="Update from the next day" %}
 
-</p></div>
+It looks like my `orient-fonts.css` file is being requested twice: once from the `<link>` tag and once as an XHR request so that [EQCSS](https://elementqueries.com/) can analyze the stylesheets and render the element queries properly. It's those link tag requests that have the CORS headers, but the XHR requests do not.
+
+{% /note %}
 
 If I had any takeaways, they would have to be that debugging these kinds of issues (especially on systems you don't know well) can be tricky, and it helps to have knowledge of the invariants of the system. In this case, I had done my background research on CORS errors so I knew what the ultimate solution would look like: there were response headers that weren't showing up when I expected them to. I also knew that because _some_ CURL queries responded with the correct CORS headers, there was a problem with some configuration between S3 and the browser: one of the layers working in there was stripping away the response headers I wanted. I was then able to examine each layer to narrow down where the problem lies, then read the documentation specific to that layer (thank goodness that documentation exists) to configure the CDN correctly.
 
-This was an interesting case study since it's in an unfamiliar area (HTTP responses and CDN configuration) of a very familiar field (web development). Most of the time when I come across these confusing types of issues I look through Stack Overflow and add the few lines of code that solves it.[^3] This CORS issue had come up enough times that I decided that I wanted to have a greater understanding of what's going on and what needed to be fixed.
+This was an interesting case study since it's in an unfamiliar area (HTTP responses and CDN configuration) of a very familiar field (web development). Most of the time when I come across these confusing types of issues I look through Stack Overflow and add the few lines of code that solves it. {% footnote %}This is a skill in itself: knowing which Stack Overflow solution fits the problem domain and understanding where the lines of code need to go. In those situations, I feel like SO is standing in for good documentation, in that I couldn't figure out through documentation alone why an issue was taking place and what code I needed to write in order to solve it.{% /footnote %} This CORS issue had come up enough times that I decided that I wanted to have a greater understanding of what's going on and what needed to be fixed.
 
 I hope to write this kind of blog post again in the future. Deep-diving and solving these types of problems is an intrinsic part of software development, and I like having insight into the thought processes I go through in order to fix a bug. Hopefully if I do this again I can have points of reference for my problem-solving thought process to see how this skill changes over time.
-
-[^1]: My goodness this page was a slog to find. And it's not even that helpful.
-[^2]: This was the most confusing part of debugging. Why does it work in the browser but the proper headers don't show up in CURL?
-[^3]: This is a skill in itself: knowing which Stack Overflow solution fits the problem domain and understanding where the lines of code need to go. In those situations, I feel like SO is standing in for good documentation, in that I couldn't figure out through documentation alone why an issue was taking place and what code I needed to write in order to solve it.

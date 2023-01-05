@@ -3,48 +3,43 @@ import assert from "assert";
 import { ContentFile, Directory } from "../markdoc/fetch-files";
 import makeSchema from "../markdoc/schema";
 
-type BlogPostMetadata = {
-  date: Date;
+type ProjectMetadata = {
   title: string;
-  slug: string | string[];
+  slug: string;
   blurb: string;
-  outdated: string | null;
+  link: string | null;
+  image: string;
 };
 
-export type DehydratedBlogPost = {
+export type DehydratedProject = {
   ast?: any;
   renderableTree?: any;
-  metadata: Omit<BlogPostMetadata, "date"> & { date: string };
+  metadata: ProjectMetadata;
 };
 
-export class BlogPost implements ContentFile {
-  static directory: Directory = "content/blog";
+export class Project implements ContentFile {
+  static directory: Directory = "content/projects";
 
-  metadata: BlogPostMetadata;
+  metadata: ProjectMetadata;
   ast?: Node;
   renderableTree?: RenderableTreeNode;
 
-  constructor(object: DehydratedBlogPost) {
+  constructor(object: DehydratedProject) {
     const { metadata, ast, renderableTree } = object;
     assert(metadata);
-    assert("date" in metadata, JSON.stringify(metadata));
     assert("title" in metadata);
+    assert("blurb" in metadata);
     assert(
       "slug" in metadata,
       `slug metadata value not found in ${metadata.title}`
     );
 
-    assert(
-      "blurb" in metadata,
-      `blurb metadata value not found in ${metadata.title}`
-    );
-
     this.metadata = {
-      date: new Date(metadata.date),
       title: metadata.title,
       slug: metadata.slug,
       blurb: metadata.blurb,
-      outdated: metadata.outdated || null,
+      link: metadata.link || null,
+      image: `https://picsum.photos/seed/${metadata.slug}/600/600`,
     };
 
     this.ast = ast;
@@ -62,62 +57,35 @@ export class BlogPost implements ContentFile {
     }
   }
 
-  static hydrate(object: DehydratedBlogPost): BlogPost {
-    return new BlogPost(object);
+  static hydrate(object: DehydratedProject): Project {
+    return new Project(object);
   }
 
-  serialize(): DehydratedBlogPost {
-    const metadata = {
-      ...this.metadata,
-      date: this.metadata.date.toISOString(),
-    };
+  serialize(): DehydratedProject {
     if (this.renderableTree) {
       return {
         renderableTree: JSON.stringify(this.renderableTree),
-        metadata,
+        metadata: this.metadata,
       };
     } else if (this.ast) {
       return {
         ast: JSON.stringify(this.ast),
-        metadata,
+        metadata: this.metadata,
       };
     }
 
     return {
-      metadata,
+      metadata: this.metadata,
     };
-  }
-
-  href() {
-    return `/blog/${this.year()}/${this.slug()}`;
-  }
-
-  staticPath() {
-    return {
-      year: this.year(),
-      slug: this.slug(),
-    };
-  }
-
-  formattedDate() {
-    return this.metadata.date.toISOString().split("T")[0];
-  }
-
-  matches(year: string, slug: string): boolean {
-    return this.year() === year && this.slug() === slug;
   }
 
   orderKey() {
-    return this.metadata.date.getTime();
+    return this.slug();
   }
 
   slug() {
     return Array.isArray(this.metadata.slug)
       ? this.metadata.slug[0]
       : this.metadata.slug;
-  }
-
-  private year() {
-    return this.metadata.date.getFullYear().toString();
   }
 }

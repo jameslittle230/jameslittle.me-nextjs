@@ -1,6 +1,7 @@
 @layer components {
   .blog-post-preview {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
+    padding: 0.5em;
   }
 
   .blog-post-preview-title {
@@ -26,5 +27,32 @@
   .blog-post-preview-date {
     font-family: "Alright";
     color: var(--muted-text-color);
+  }
+}
+
+.blog-post-preview-outdated {
+  background-color: var(--offset-background);
+  color: var(--muted-text-color);
+  border-radius: 8px;
+  align-items: center;
+
+  .flex-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .tag {
+    background-color: var(--color-30);
+    padding: 0.2em 0.8em;
+    border-radius: 1em;
+    color: var(--reverse-text-color);
+    font-family: "Alright";
+    font-size: 0.8em;
+  }
+
+  .blog-post-preview-title {
+    font-size: 1em;
+    margin-bottom: 0;
   }
 }

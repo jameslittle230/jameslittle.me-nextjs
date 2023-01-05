@@ -1,0 +1,27 @@
+.footnote-popover {
+  position: absolute;
+  width: 20rem;
+  background: var(--surface-background);
+  border: 1px solid var(--color-20);
+  padding: 1em;
+  font-size: 0.8em;
+  z-index: 10;
+  border-radius: 1em;
+  box-shadow:
+  0px 0px 2.2px rgba(0, 0, 0, 0.07),
+  0px 0px 5.3px rgba(0, 0, 0, 0.101),
+  0px 0px 10px rgba(0, 0, 0, 0.125),
+  0px 0px 17.9px rgba(0, 0, 0, 0.149),
+  0px 0px 33.4px rgba(0, 0, 0, 0.18),
+  0px 0px 80px rgba(0, 0, 0, 0.25)
+;
+
+}
+
+.footnote-toggle:hover .pill {
+  fill: var(--color-40);
+}
+.footnote-toggle-active .pill,
+.footnote-toggle-active:hover .pill {
+  fill: var(--color-60);
+}

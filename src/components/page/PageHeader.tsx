@@ -5,15 +5,17 @@ import Search from "../../icons/search.svg";
 import classnames from "classnames";
 import { Icon } from "../icon";
 import { useState } from "react";
-import Head from "next/head";
-import { useTheme } from "../Theme";
 import { RacingStripe } from "../RacingStripe";
 
 const NavListItem = ({ href, children }: any) => {
   const router = useRouter();
   const active = router.pathname === href;
   return (
-    <li className={classnames("page-header-list-item", { "page-header-list-item-active": active })}>
+    <li
+      className={classnames("page-header-list-item", {
+        "page-header-list-item-active": active,
+      })}
+    >
       <Link href={href}>{children}</Link>
     </li>
   );
@@ -45,7 +47,10 @@ export const PageHeader = () => {
     <>
       <RacingStripe level={60} />
       <Grid background="color" padding="none">
-        <Gutter side="left" style={{ display: "flex", flexDirection: "column-reverse" }}>
+        <Gutter
+          side="left"
+          style={{ display: "flex", flexDirection: "column-reverse" }}
+        >
           {/* <button
             onClick={() => {
               setSearchVisible(!searchVisible);

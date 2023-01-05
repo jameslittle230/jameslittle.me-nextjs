@@ -1,4 +1,4 @@
-const Note = ({ title, children }) => {
+const Note = ({ title, children }: { title: string; children: any }) => {
   return (
     <div className="note">
       <h3>{title}</h3>

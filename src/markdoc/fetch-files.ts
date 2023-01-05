@@ -1,14 +1,12 @@
 import Markdoc, { Node, RenderableTreeNode } from "@markdoc/markdoc";
 import path from "path";
 import yaml, { JSON_SCHEMA } from "js-yaml";
-import { strict as assert } from "node:assert";
 import { BlogPost } from "../models/blog-post";
+import { Project } from "../models/project";
 
 const fs = require("mz/fs");
 
 const CACHE_ENABLED = false;
-
-// declare function assert(value: unknown): asserts value;
 
 export type Frontmatter = {
   date: string;
@@ -17,7 +15,10 @@ export type Frontmatter = {
   excerpt?: string;
 };
 
-export type ContentFile = BlogPost;
+export interface ContentFile {
+  orderKey: () => number;
+  slug: () => string;
+}
 
 export type Directory = "content/blog" | "content/projects";
 
@@ -40,7 +41,7 @@ class FileService {
       files = this.files[directory];
     }
 
-    const file = files.find((file) => file.metadata.slug === slug);
+    const file = files.find((file) => file.slug() === slug);
     if (file) {
       return file;
     }
@@ -82,22 +83,29 @@ class FileService {
 
         const ast = Markdoc.parse(source);
 
-        const frontmatter: any = ast.attributes.frontmatter
-          ? yaml.load(ast.attributes.frontmatter, { schema: JSON_SCHEMA })
-          : {};
+        let frontmatter: any = {};
+        try {
+          frontmatter = ast.attributes.frontmatter
+            ? yaml.load(ast.attributes.frontmatter, { schema: JSON_SCHEMA })
+            : {};
+        } catch (e) {
+          throw new Error(
+            `Bad metadata in file ${filename}: ${(e as Error).message}`
+          );
+        }
 
         switch (directory) {
           case BlogPost.directory:
             return new BlogPost({ ast, metadata: frontmatter });
+          case Project.directory:
+            return new Project({ ast, metadata: frontmatter });
         }
 
         throw new Error("");
       })
     );
 
-    objects.sort(
-      (a, b) => a.metadata.date.getTime() - b.metadata.date.getTime()
-    );
+    objects.sort((a, b) => b.orderKey() - a.orderKey());
     return objects;
   };
 }

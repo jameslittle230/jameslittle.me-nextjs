@@ -3,7 +3,7 @@ title: "Building Internal Analytics for Stork"
 date: 2021-06-02
 slug: stork-analytics
 blurb: "A Docker love letter? An admission that I'm bad at dev-ops? Maybe I just did something I want to brag about. This is that brag."
-outdated: true
+outdated: "I've rewritten this in Rust and am now hosting it on Render as part of an effort to be less of a server shepherd."
 ---
 
 I wrote a little Node application that downloads all the Cloudfront logs that [Stork](https://stork-search.net) generates, and sticks the data in a SQLite database. I stuck a Dockerfile in front of that application. Then, I added another directory that has a Dockerfile pointing to [Datasette](https://datasette.io). Now my project is a monorepo that contains multiple services.
@@ -25,8 +25,6 @@ It's got a rolling average!
 {% figure caption="I don't think I'm ready to share the y-axis here, sorry." %}
 {% image src="stork-stats.png" /%}
 {% /figure %}
-
----
 
 I reckon this is the most stable thing I've launched in a prod environment. This feels like the deployment with the smallest bundle of hacks I've ever created. I spent shockingly little time installing software on the EC2 box, which is a task I've easily burned weeks on before. Moreover, I can run each service independently in production or on my personal computer. I'm happy with this because I don't think I'll have to keep worrying about it forever.
 
