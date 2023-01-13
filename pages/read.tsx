@@ -98,22 +98,22 @@ export default function Read({
     <PageLayout title="Reading List">
       <Grid>
         <Subgrid weight="right">
-          <Left>
-            <p>All {data.length} books I&apos;ve read since January 2014.</p>
-          </Left>
           <Right>
-            {yearListings.map(([a, b]) => (
-              <>
-                <h2 key={a}>{a}</h2>
-                <ul>
-                  {b.map((book) => (
-                    <li key={book.title}>
-                      {book.title} <em>by</em> {book.author}
-                    </li>
-                  ))}
-                </ul>
-              </>
-            ))}
+            <article>
+              <p>All {data.length} books I&apos;ve read since January 2014.</p>
+              {yearListings.map(([a, b]) => (
+                <>
+                  <h2 key={a}>{a}</h2>
+                  <ul>
+                    {b.map((book) => (
+                      <li key={book.title}>
+                        {book.title} <em>by</em> {book.author}
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ))}
+            </article>
           </Right>
         </Subgrid>
       </Grid>
