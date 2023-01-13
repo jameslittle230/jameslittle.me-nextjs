@@ -64,7 +64,7 @@ export const PageFooter = () => {
                 .map((set) =>
                   set
                     .map((link) => (
-                      <a href={link.href} rel={link.rel} key="href">
+                      <a href={link.href} rel={link.rel} key={link.href}>
                         {link.name}
                       </a>
                     ))
