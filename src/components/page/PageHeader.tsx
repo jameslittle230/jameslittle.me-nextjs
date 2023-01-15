@@ -28,11 +28,7 @@ const NavBar = () => (
       <NavListItem href="/projects">Projects</NavListItem>
       <NavListItem href="/photos">Photos</NavListItem>
       <NavListItem href="/talks">Talks</NavListItem>
-      <li>•</li>
-      <NavListItem href="/now">Now</NavListItem>
-      <NavListItem href="/uses">Uses</NavListItem>
       <NavListItem href="/read">Read</NavListItem>
-      <li>•</li>
       <NavListItem href="/guestbook">Guestbook</NavListItem>
     </ul>
   </nav>

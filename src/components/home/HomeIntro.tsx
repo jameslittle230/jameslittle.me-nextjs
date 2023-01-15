@@ -8,8 +8,9 @@ export const HomeIntro = () => (
         <Left style={{ fontSize: "1.3em" }}>
           <p>I&apos;m a software engineer and design enthusiast.</p>
           <p>
-            I&apos;m interested in how people interact with technology. I want to make software that
-            makes the digital world friendly and intuitive.
+            I&apos;m interested in how people interact with technology. I want
+            to make software that makes the digital world friendly and
+            intuitive.
           </p>
         </Left>
         <Right
@@ -17,7 +18,7 @@ export const HomeIntro = () => (
             height: 0,
             display: "flex",
             alignItems: "flex-start",
-            justifyContent: "center"
+            justifyContent: "center",
           }}
         >
           <Image
@@ -31,7 +32,7 @@ export const HomeIntro = () => (
               borderRadius: "12px",
               width: "70%",
               height: "auto",
-              marginRight: "2em"
+              marginRight: "2em",
             }}
           ></Image>
         </Right>
@@ -43,16 +44,21 @@ export const HomeIntro = () => (
       <Subgrid weight="center">
         <Left style={{ fontSize: "1.1em" }}>
           <p>
-            I work at Stripe on the Docs team, where I do web platform engineering and web design.
-            Previously, I built in-person payment experiences for Stripe Terminal and worked on the
-            Stripe Dashboard iOS app.
+            I work at <a href="https://stripe.com">Stripe</a> on the{" "}
+            <a href="https://stripe.com/docs">Docs Product</a> team, where I do
+            web platform engineering and web design.
           </p>
           <p>
-            I started at Stripe after graduating from Bowdoin College in Brunswick, Maine, where I
-            majored in Computer Science, built a website for the student newspaper, and made robots
-            play soccer.
+            I started at Stripe after graduating from{" "}
+            <a href="https://bowdoin.edu">Bowdoin College</a> in Brunswick,
+            Maine, where I majored in Computer Science, built a website for the{" "}
+            <a href="https://bowdoinorient.com/">student newspaper</a>, and{" "}
+            <a href="https://www.youtube.com/watch?v=r7XT98HchBs">
+              made robots play soccer
+            </a>
+            .
           </p>
-          <p>Today, I live in Boston, Massachusetts.</p>
+          <p>Today, I live in Cambridge, Massachusetts.</p>
         </Left>
       </Subgrid>
     </Grid>
