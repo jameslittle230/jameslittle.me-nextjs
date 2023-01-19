@@ -1,6 +1,5 @@
-import Airtable from "airtable";
 import { PageLayout } from "../layouts/PageLayout";
-import { FullWidth, Grid, Left, Right, Subgrid } from "../src/components/grid";
+import { FullWidth, Grid } from "../src/components/grid";
 import { ProjectPreview } from "../src/components/ProjectPreview";
 import Theme from "../src/components/Theme";
 import { fileService } from "../src/markdoc/fetch-files";
@@ -46,12 +45,39 @@ export default function Read({
               <ProjectPreview project={project} key={project.metadata.slug} />
             ))}
           </div>
-          <ul>
-            <li>Other</li>
-            <li>stuff</li>
-            <li>goes</li>
-            <li>here</li>
-          </ul>
+          <article>
+            <h2>Other things I&apos;ve made</h2>
+            <ul>
+              <li>
+                <a href="https://jil.im">A link shortening service</a> (Late
+                2022)
+              </li>
+              <li>This blog! (Early 2023)</li>
+              <li>
+                <a href="https://rothrotterlaster.com">
+                  The website for my mom&apos;s pediatric practice
+                </a>{" "}
+                (2019-present)
+              </li>
+              <li>
+                A Bowdoin Directory with live search and more information
+                displayed. (Fall 2018–Fall 2021)
+              </li>
+              <li>
+                <a href="https://files.jameslittle.me/projects/ait-graphics-final/index.html">
+                  A Marble Blast Gold clone built with WebGL
+                </a>{" "}
+                (Spring 2018)
+              </li>
+              <li>
+                <a href="https://bowdoinorient.com/2017/04/07/housing/">
+                  An interactive Bowdoin campus map to visualize the likelihood
+                  of housing lottery outcomes
+                </a>{" "}
+                (Spring 2017)
+              </li>
+            </ul>
+          </article>
         </FullWidth>
       </Grid>
 

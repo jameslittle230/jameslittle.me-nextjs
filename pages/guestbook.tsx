@@ -200,7 +200,7 @@ export default function Guestbook({ entries }: { entries: GuestbookEntry[] }) {
         <FullWidth>
           <p>
             Thanks for visiting my website! If you want, please sign my
-            guestbook (like it&apos;s 2007)!
+            guestbook (ya know, like it&apos;s 2007)!
           </p>
         </FullWidth>
 
