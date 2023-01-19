@@ -9,6 +9,8 @@ import { ProjectPreview } from "../src/components/ProjectPreview";
 import { fileService } from "../src/markdoc/fetch-files";
 import { BlogPost, DehydratedBlogPost } from "../src/models/blog-post";
 import { DehydratedProject, Project } from "../src/models/project";
+import { generateRssFeed } from "../src/scripts/gen-rss";
+import { generateSearchIndex } from "../src/scripts/gen-search-index";
 
 const SeeMoreLink = ({ href, verb }: { href: string; verb?: string }) => (
   <div className="read-more-link">
@@ -17,6 +19,11 @@ const SeeMoreLink = ({ href, verb }: { href: string; verb?: string }) => (
 );
 
 export async function getStaticProps(_context: any) {
+  // Random scripts that need to run at some point during build time
+  generateRssFeed();
+  generateSearchIndex();
+
+  // Get props for this page
   let blogPosts = [
     ...(await fileService.listFiles(BlogPost.directory)),
   ] as BlogPost[];
