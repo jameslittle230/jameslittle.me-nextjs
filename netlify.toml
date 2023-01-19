@@ -1,6 +1,14 @@
 [build]
-command = "yarn export"
+command = "./get-stork.sh && yarn export"
 publish = "out/"
 
 [build.environment]
 NETLIFY_NEXT_PLUGIN_SKIP = "true"
+
+[[redirects]]
+from = "/portfolio"
+to = "/projects"
+
+[[redirects]]
+from = "/books"
+to = "/read"

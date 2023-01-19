@@ -1,7 +1,5 @@
-const withMarkdoc = require("@markdoc/next.js");
-
 /** @type {import('next').NextConfig} */
-const nextConfig = withMarkdoc({ mode: "static" })({
+module.exports = {
   reactStrictMode: true,
   swcMinify: true,
   pageExtensions: ["tsx", "md"],
@@ -9,20 +7,18 @@ const nextConfig = withMarkdoc({ mode: "static" })({
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "files.jameslittle.me"
-      }
+        hostname: "files.jameslittle.me",
+      },
     ],
-    unoptimized: true
+    unoptimized: true,
   },
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
-      use: ["@svgr/webpack"]
+      use: ["@svgr/webpack"],
     });
 
     return config;
-  }
-});
-
-module.exports = nextConfig;
+  },
+};
