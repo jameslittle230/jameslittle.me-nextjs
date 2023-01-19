@@ -51,7 +51,7 @@ const generateRssFeed = async () => {
     });
   });
 
-  const dir = "./out";
+  const dir = "./public";
   fs.mkdirSync(dir, { recursive: true });
   fs.writeFileSync(`${dir}/feed.xml`, feed.rss2());
   fs.writeFileSync(`${dir}/atom.xml`, feed.atom1());

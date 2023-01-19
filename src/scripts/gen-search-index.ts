@@ -56,7 +56,7 @@ const generateSearchIndex = async () => {
   fs.writeFileSync(configFilename, JSON.stringify(searchIndex));
 
   exec(
-    `./stork build -i ${configFilename} -o ./out/search-index.st`,
+    `./stork build -i ${configFilename} -o ./public/search-index.st`,
     (error, stdout, stderr) => {
       if (error) {
         console.error(`exec error: ${error}`);
