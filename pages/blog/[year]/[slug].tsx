@@ -36,7 +36,7 @@ export async function getStaticProps(context: any): Promise<{
     throw new Error("Post not found");
   }
 
-  if (postIndex === 0) {
+  if (postIndex === blogPosts.length - 1) {
     return {
       props: {
         prev: null,
@@ -46,7 +46,7 @@ export async function getStaticProps(context: any): Promise<{
   } else {
     return {
       props: {
-        prev: blogPosts[postIndex - 1].serialize(),
+        prev: blogPosts[postIndex + 1].serialize(),
         post: blogPosts[postIndex].serialize(),
       },
     };
