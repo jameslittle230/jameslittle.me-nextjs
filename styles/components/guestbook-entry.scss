@@ -7,6 +7,9 @@
     &.required:after {
       color: var(--red);
       content: " \2605";
+      font-size: 0.6em;
+      line-height: 1rem;
+      vertical-align: middle;
     }
   }
 
@@ -16,6 +19,7 @@
     width: 100%;
     font-family: sans-serif;
     border: 1px solid var(--muted-text-color);
+    font-size: 0.8em;
   }
 }
 

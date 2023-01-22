@@ -38,7 +38,7 @@ You'll see a `lib` folder appear in your Xcode sidebar.
 
 Now, you need to tell Xcode that it should include the `lib` directory in the application bundle. In Xcode, go to your project settings and click on your application target. In the top navigation bar, you'll see a "Build Phases" tab, and once you select that tab, you'll see "Copy Bundle Resources" as one of the build phases. Expand that build phase, and drag and drop the `lib` directory from Finder into the list of bundle resources.
 
-![](https://files.jameslittle.me/images/tmp/xc1.png)
+{% image src="xc1.png" /%}
 
 Now, build and run the app and open the application bundle in the Finder. {% footnote %}Not sure how? Right click on the icon in the dock, and select "Options → Show in Finder". Right click on the application in the Finder window, hold down option, and select "Show Package Contents". The folder you'll find yourself in holds the contents of the application bundle: welcome!{% /footnote %} You'll be able to see your freshly minted `lib` directory (under `Contents/Resources`).
 
@@ -96,7 +96,7 @@ $ cp /usr/lib/libSystem.B.dylib ~/project/Project/frameworks/
 
 Create a new "Copy Files" build phase and set the destination to "Frameworks". Drag your newly-copied dylib from the Finder to the list of files in Xcode. When you build your project, you should see the dylib in `Contents/Frameworks`.
 
-![](https://files.jameslittle.me/images/tmp/xc2.png)
+{% image src="xc2.png" /%}
 
 By installing them into the `Frameworks` directory, Xcode knows to embed the framework in the application target in such a way that the linker can reference it.
 

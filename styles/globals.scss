@@ -39,6 +39,8 @@ body {
   flex-direction: column;
   gap: 1em;
   align-self: end;
+  position: sticky;
+  bottom: 2rem;
 }
 
 .section-title {
@@ -46,7 +48,7 @@ body {
   font-family: "Alright";
   font-weight: 900;
   font-style: italic;
-  color: hsla(0, 0%, 0%, 50%);
+  color: var(--muted-text-color);
   margin-bottom: 0.4em;
 }
 

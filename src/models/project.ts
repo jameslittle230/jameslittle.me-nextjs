@@ -39,7 +39,8 @@ export class Project implements ContentFile {
       slug: metadata.slug,
       blurb: metadata.blurb,
       link: metadata.link || null,
-      image: `https://picsum.photos/seed/${metadata.slug}/600/600`,
+      image:
+        metadata.image || `https://picsum.photos/seed/${metadata.slug}/600/600`,
     };
 
     this.ast = ast;
