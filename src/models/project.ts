@@ -7,8 +7,9 @@ type ProjectMetadata = {
   title: string;
   slug: string;
   blurb: string;
-  link: string | null;
+  url: string | null;
   image: string;
+  order: number;
 };
 
 export type DehydratedProject = {
@@ -33,14 +34,18 @@ export class Project implements ContentFile {
       "slug" in metadata,
       `slug metadata value not found in ${metadata.title}`
     );
+    assert(
+      "image" in metadata,
+      `image metadata value not found in ${metadata.title}`
+    );
 
     this.metadata = {
       title: metadata.title,
       slug: metadata.slug,
       blurb: metadata.blurb,
-      link: metadata.link || null,
-      image:
-        metadata.image || `https://picsum.photos/seed/${metadata.slug}/600/600`,
+      url: metadata.url || null,
+      image: metadata.image,
+      order: metadata.order,
     };
 
     this.ast = ast;
@@ -81,7 +86,7 @@ export class Project implements ContentFile {
   }
 
   orderKey() {
-    return this.slug();
+    return this.metadata.order;
   }
 
   slug() {

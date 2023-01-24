@@ -41,7 +41,7 @@ export const PageHeader = () => {
   const [searchVisible, setSearchVisible] = useState(false);
   return (
     <>
-      <RacingStripe level={60} />
+      <RacingStripe level={60} style={{ position: "fixed", zIndex: 100 }} />
       <Grid background="color" padding="none">
         <Gutter
           side="left"

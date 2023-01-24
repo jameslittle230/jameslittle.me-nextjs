@@ -94,7 +94,7 @@ const GuestbookForm = () => {
   };
 
   return (
-    <>
+    <div className="guestbook-form">
       {errorMessage && <p>{errorMessage}</p>}
       <form>
         <div className="form-field">
@@ -168,7 +168,7 @@ const GuestbookForm = () => {
           {submitButtonText()}
         </button>
       </form>
-    </>
+    </div>
   );
 };
 

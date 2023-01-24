@@ -5,9 +5,11 @@ import { BlogPost } from "../models/blog-post";
 import fs from "fs";
 
 const generateRssFeed = async () => {
-  const blogPosts = (await fileService.listFiles(
-    BlogPost.directory
-  )) as BlogPost[];
+  const blogPosts = [
+    ...(await fileService.listFiles(BlogPost.directory)),
+  ] as BlogPost[];
+
+  blogPosts.reverse();
 
   const siteURL = process.env.SITE_URL || "https://jameslittle.me";
   const date = new Date();

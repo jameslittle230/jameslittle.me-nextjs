@@ -13,27 +13,14 @@ export const HomeIntro = () => (
             intuitive.
           </p>
         </Left>
-        <Right
-          style={{
-            height: 0,
-            display: "flex",
-            alignItems: "flex-start",
-            justifyContent: "center",
-          }}
-        >
+        <Right className="home-intro-right-col">
           <Image
             src="https://files.jameslittle.me/images/headshot.jpg"
             width="400"
             height="600"
             alt="my dumb mug"
             priority
-            style={{
-              zIndex: 20,
-              borderRadius: "12px",
-              width: "70%",
-              height: "auto",
-              marginRight: "2em",
-            }}
+            className="home-intro-image"
           ></Image>
         </Right>
       </Subgrid>

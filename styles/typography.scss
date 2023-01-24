@@ -70,9 +70,15 @@
   font-style: normal;
 }
 
+body {
+  --equity-font-family: "equity", "Georgia", serif;
+  --alright-font-family: "alright", sans-serif;
+  --mono-font-family: "jetbrains mono", monospace;
+}
+
 @layer defaults {
   body {
-    font-family: "equity", "Georgia", serif;
+    font-family: var(--equity-font-family);
     color: var(--text-color);
     font-size: 18px;
   }
@@ -87,7 +93,7 @@
   h4,
   h5,
   h6 {
-    font-family: "Alright", sans-serif;
+    font-family: var(--alright-font-family);
     color: hsla(var(--theme-hue), 20%, 20%);
   }
 
@@ -171,7 +177,7 @@
 
     pre,
     code {
-      font-family: "jetbrains mono";
+      font-family: var(--mono-font-family);
     }
   }
 

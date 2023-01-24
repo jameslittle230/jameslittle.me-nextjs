@@ -1,4 +1,5 @@
 import Markdoc from "@markdoc/markdoc";
+import Head from "next/head";
 import Link from "next/link";
 import React from "react";
 import { FullWidth, Grid, Left, Right, Subgrid } from "../src/components/grid";
@@ -25,6 +26,9 @@ export const BlogPostLayout = ({
 
   return (
     <>
+      <Head>
+        <title>{post.metadata.title} - jameslittle.me</title>
+      </Head>
       <PageHeader />
       <PageTitle
         title={post.metadata.title}

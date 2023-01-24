@@ -36,21 +36,14 @@ export async function getStaticProps(context: any): Promise<{
     throw new Error("Post not found");
   }
 
-  if (postIndex === blogPosts.length - 1) {
-    return {
-      props: {
-        prev: null,
-        post: blogPosts[postIndex].serialize(),
-      },
-    };
-  } else {
-    return {
-      props: {
-        prev: blogPosts[postIndex + 1].serialize(),
-        post: blogPosts[postIndex].serialize(),
-      },
-    };
-  }
+  return {
+    props: {
+      prev: blogPosts[postIndex - 1]
+        ? blogPosts[postIndex - 1].serialize()
+        : null,
+      post: blogPosts[postIndex].serialize(),
+    },
+  };
 }
 
 export default function Post({

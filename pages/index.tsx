@@ -28,6 +28,7 @@ export async function getStaticProps(_context: any) {
     ...(await fileService.listFiles(BlogPost.directory)),
   ] as BlogPost[];
 
+  blogPosts.reverse();
   blogPosts = blogPosts.splice(0, 5);
   const posts = blogPosts.map((p) => {
     let s = p.serialize();

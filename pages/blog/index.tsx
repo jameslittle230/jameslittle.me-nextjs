@@ -9,6 +9,7 @@ export async function getStaticProps(_context: any) {
   const posts = [
     ...(await fileService.listFiles(BlogPost.directory)),
   ] as BlogPost[];
+  posts.reverse();
   return {
     props: {
       posts: posts.map((p) => {

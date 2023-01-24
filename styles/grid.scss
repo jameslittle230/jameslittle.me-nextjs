@@ -19,6 +19,12 @@
         )
       )
       var(--grid-gutter-size) 1fr;
+
+    @media only screen and (max-width: 768px) {
+      display: block;
+      padding-left: 1em !important;
+      padding-right: 1em !important;
+    }
   }
 
   .full-width-wrap-no-padding {
@@ -32,6 +38,10 @@
   .subgrid {
     display: grid;
     column-gap: var(--grid-column-gap);
+
+    @media only screen and (max-width: 768px) {
+      display: block;
+    }
   }
 
   .left-weighted-subgrid {

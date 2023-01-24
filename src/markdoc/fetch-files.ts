@@ -6,7 +6,7 @@ import { Project } from "../models/project";
 
 const fs = require("mz/fs");
 
-const CACHE_ENABLED = false;
+const CACHE_ENABLED = true;
 
 export type Frontmatter = {
   date: string;
@@ -105,7 +105,7 @@ class FileService {
       })
     );
 
-    objects.sort((a, b) => b.orderKey() - a.orderKey());
+    objects.sort((a, b) => a.orderKey() - b.orderKey());
     return objects;
   };
 }

@@ -36,7 +36,7 @@ export async function getStaticProps(_context: any) {
                 const completed = new Date(
                   record.get("Completion Date") as string
                 );
-                const year = completed.getFullYear();
+                const year = completed.getUTCFullYear();
                 const datum = {
                   title: record.get("Title") as string,
                   author: record.get("Author") as string,
@@ -117,15 +117,6 @@ export default function Read({
           </Right>
         </Subgrid>
       </Grid>
-
-      {/* {Object.entries(yearListings).map(([year, books]) => {
-        <h2>{year}</h2>;
-        <ul>
-          {books.map((book) => (
-            <li key={book.title}>{book.title}</li>
-          ))}
-        </ul>;
-      })} */}
     </PageLayout>
   );
 }

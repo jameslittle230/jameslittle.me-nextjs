@@ -11,6 +11,11 @@
   .footer-colophon {
     //   padding-left: 20%;
     text-align: right;
+
+    @media only screen and (max-width: 768px) {
+      text-align: left;
+      margin-top: 1em;
+    }
   }
 
   .footer {

@@ -1,0 +1,45 @@
+@layer components {
+  .project-list-item {
+    border: 2px solid var(--offset-background);
+    padding: 0.75em;
+    border-radius: 1em;
+
+    .arrow {
+      display: none;
+    }
+
+    img {
+      margin: -0.3em;
+      max-width: calc(100% + 0.6em);
+      border-radius: 0.7em;
+    }
+
+    h2 {
+      margin-top: 1em;
+    }
+  }
+
+  .project-list-item-link {
+    transition: transform ease-in-out 0.3s, border-color ease-in-out 0.3s;
+    text-decoration: none;
+    color: currentColor;
+    border-color: var(--color-10);
+
+    .arrow {
+      display: inline;
+      opacity: 0;
+      color: var(--color-40);
+      transition: opacity ease-in-out 0.3s;
+      font-family: var(--equity-font-family);
+    }
+  }
+
+  .project-list-item-link:hover {
+    transform: scale(1.05) rotate(-1deg);
+    border-color: var(--color-40);
+
+    .arrow {
+      opacity: 1;
+    }
+  }
+}

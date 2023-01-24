@@ -19,6 +19,7 @@
     width: 100%;
     font-family: sans-serif;
     border: 1px solid var(--muted-text-color);
+    border-radius: 6px;
     font-size: 0.8em;
   }
 }
@@ -53,6 +54,10 @@
 .form-message {
   font-family: sans-serif;
   font-size: 0.8em;
+}
+
+.guestbook-form {
+  margin-bottom: var(--vertical-rhythm);
 }
 
 @layer components {

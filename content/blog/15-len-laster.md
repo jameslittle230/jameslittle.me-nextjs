@@ -5,10 +5,6 @@ slug: len-laster
 blurb: "1928–2020"
 ---
 
-{% note %}
-My grandfather died from natural causes last week. This is what I read at his funeral.
-{% /note %}
-
 Papa, I think, always wanted me to be a writer. Technical briefings probably aren't quite what he had in mind, but even still, I think he'd be excited to know that so much of my job today consists of putting pen to paper and writing a project proposal or an incident postmortem, since above all else, the things I write these days are driven by a story. It was my grandfather who taught me how to tell a story: how to weave together characters, conflict, and humor above all else to bring out a response from anyone who would listen.
 
 I don't know how much of his aptitude for storytelling he brought to his professional world. [Dr. Leonard Laster](https://www.ccgfuneralhome.com/obit/dr.-leonard-laster) had already retired by the time I was born, so while others knew him as Dr. Laster the Gastroenterologist or Dr. Laster the researcher or Dr. Laster the Presidential Adviser, I knew him as Papa, who would tell me stories of my kidneys when I didn’t want to drink my orange juice, stories complete with the dramatic groans and whines my kidneys surely were making, sound effects which would leave me cackling at the breakfast table. Papa would weave tall tales to keep me entertained, like the story of two supermarket owners, Mr. Stop and Mr. Shop, who inevitably clashed over what in the store actually constituted merchandise (I would always have to interject to say that no, the checkout counter wasn't for sale!) Goofball stories like that were his way of _being_ a grandfather and sharing love with the youngest members of his family. Throughout the childhoods of four different grandchildren, Papa was responsible for more laughter in his Cape Cod house than the rest of us combined: the increasing ridiculousness of the stories he told brought his family together and built a home filled with love, warmth, and comfort.

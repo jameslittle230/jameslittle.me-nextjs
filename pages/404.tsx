@@ -6,7 +6,7 @@ export default function Pages() {
   return (
     <PageLayout title="404">
       <Grid>
-        <FullWidth>rip</FullWidth>
+        <FullWidth>Page not found!!</FullWidth>
       </Grid>
     </PageLayout>
   );
