@@ -56,7 +56,7 @@ export const BlogPostLayout = ({
             <div className="blog-post-aside">
               <p>
                 I&apos;m James Little, a software engineer and design enthusiast
-                based in Boston, MA. I work at Stripe, on Stripe Terminal, and I
+                based in Cambridge, MA. I work at Stripe on the Docs team, and I
                 build a search web tool called Stork Search.
               </p>
             </div>
