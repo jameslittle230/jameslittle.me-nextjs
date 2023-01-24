@@ -11,7 +11,7 @@ export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== "undefined" && window.goatcounter) {
       // @ts-ignore-error
       (window.goatcounter as any).count({
         path: router.asPath,
