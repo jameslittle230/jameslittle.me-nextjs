@@ -57,7 +57,7 @@ export const BlogPostLayout = ({
               <p>
                 I&apos;m James Little, a software engineer and design enthusiast
                 based in Cambridge, MA. I work at Stripe on the Docs team, and I
-                build a search web tool called Stork Search.
+                build a web search tool called <a href="https://stork-search.net">Stork Search</a>.
               </p>
             </div>
           </Left>
