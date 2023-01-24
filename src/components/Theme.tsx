@@ -1,12 +1,22 @@
 import Head from "next/head";
-import { createContext, useState, useContext } from "react";
 
 export type ThemeColor = "green" | "blue" | "orange";
 
-const Theme = ({ theme }: {theme: ThemeColor}) => (
+const hexForTheme = (theme: ThemeColor) => {
+  switch (theme) {
+    case "blue":
+      return "#1b3855";
+    case "green":
+      return "#1b5532";
+    case "orange":
+      return "#551b24";
+  }
+};
+
+const Theme = ({ theme }: { theme: ThemeColor }) => (
   <Head>
     <style>{`body {--theme-hue: var(--${theme}-hue)}`}</style>
-    <meta name="theme-color" content="#4285f4"></meta>
+    <meta name="theme-color" content={hexForTheme(theme)}></meta>
   </Head>
 );
 
