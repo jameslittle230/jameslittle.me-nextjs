@@ -118,6 +118,6 @@ export class BlogPost implements ContentFile {
   }
 
   private year() {
-    return this.metadata.date.getFullYear().toString();
+    return this.metadata.date.getUTCFullYear().toString();
   }
 }

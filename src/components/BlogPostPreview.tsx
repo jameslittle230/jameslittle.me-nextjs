@@ -3,8 +3,7 @@ import { BlogPost } from "../models/blog-post";
 import { Left, Right, Subgrid } from "./grid";
 
 export const BlogPostPreview = ({ post }: { post: BlogPost }) => {
-  const { date, slug, title } = post.metadata;
-  const year = new Date(date).getFullYear().toString();
+  const { title } = post.metadata;
   if (post.metadata.outdated) {
     return (
       <Subgrid
