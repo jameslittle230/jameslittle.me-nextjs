@@ -38,3 +38,5 @@ next-env.d.ts
 # app
 /tmp
 stork
+/public/feed.xml
+/public/atom.xml

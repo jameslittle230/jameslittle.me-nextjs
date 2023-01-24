@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import "../styles/globals.scss";
 import Theme from "../src/components/Theme";
 
@@ -7,6 +9,15 @@ import { useRouter } from "next/router";
 
 export default function App({ Component, pageProps }: AppProps) {
   const router = useRouter();
+
+  useEffect(() => {
+    if (typeof window !== "undefined" && "goatcounter" in window) {
+      (window.goatcounter as any).count({
+        path: router.asPath,
+      });
+    }
+  }, [router]);
+
   return (
     <>
       <Head>
@@ -23,6 +34,12 @@ export default function App({ Component, pageProps }: AppProps) {
           title="RSS"
         />
         <link rel="icon" sizes="192x192" href="/favicon.png"></link>
+        <script
+          data-goatcounter="https://jil.goatcounter.com/count"
+          data-goatcounter-settings='{"no_onload": true}'
+          async
+          src="//gc.zgo.at/count.js"
+        ></script>
       </Head>
       <Theme theme="green" />
       <Component {...pageProps} />
