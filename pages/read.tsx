@@ -1,6 +1,6 @@
 import Airtable from "airtable";
 import { PageLayout } from "../layouts/PageLayout";
-import { Grid, Left, Right, Subgrid } from "../src/components/grid";
+import { Grid, Right, Subgrid } from "../src/components/grid";
 
 type Book = {
   title: string;
@@ -99,21 +99,19 @@ export default function Read({
       <Grid>
         <Subgrid weight="right">
           <Right>
-            <article>
-              <p>All {data.length} books I&apos;ve read since January 2014.</p>
-              {yearListings.map(([a, b]) => (
-                <>
-                  <h2 key={a}>{a}</h2>
-                  <ul>
-                    {b.map((book) => (
-                      <li key={book.title}>
-                        {book.title} <em>by</em> {book.author}
-                      </li>
-                    ))}
-                  </ul>
-                </>
-              ))}
-            </article>
+            <p>All {data.length} books I&apos;ve read since January 2014.</p>
+            {yearListings.map(([a, b]) => (
+              <>
+                <h2 key={a}>{a}</h2>
+                <ul>
+                  {b.map((book) => (
+                    <li key={book.title}>
+                      {book.title} <em>by</em> {book.author}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            ))}
           </Right>
         </Subgrid>
       </Grid>

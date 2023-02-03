@@ -1,5 +1,5 @@
 ---
-title: "March 2021: Stork in the News"
+title: "Stork in the News"
 date: 2021-03-28
 slug: stork-in-the-news
 blurb: "Sharing press coverage of Stork from the past month."

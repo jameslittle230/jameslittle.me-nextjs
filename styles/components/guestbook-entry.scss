@@ -29,7 +29,7 @@
   background: var(--color-50);
   color: var(--reverse-text-color);
   font-size: 1rem;
-  font-family: "Alright";
+  font-family: var(--alright-font-family);
   border: none;
   width: 100%;
   padding: 0.5em 0.8em;
@@ -88,7 +88,7 @@
   }
 
   .guestbook-entry-name {
-    font-family: "Alright";
+    font-family: var(--alright-font-family);
     color: var(--color-50);
     font-size: 1.3em;
   }

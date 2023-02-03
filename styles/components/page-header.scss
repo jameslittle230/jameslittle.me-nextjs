@@ -1,5 +1,5 @@
 .nameplate {
-  font-family: "Alright";
+  font-family: var(--alright-font-family);
   font-size: 1.5rem;
   margin-bottom: 0.3em;
   a {
@@ -26,7 +26,7 @@
 .page-header-nav li {
   display: inline;
   margin-right: 2em;
-  font-family: "Alright";
+  font-family: var(--alright-font-family);
   text-transform: lowercase;
 
   @media only screen and (max-width: 550px) {

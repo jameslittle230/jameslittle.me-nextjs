@@ -64,7 +64,7 @@ body {
 .read-more-link {
   display: flex;
   flex-direction: row-reverse;
-  font-family: "Alright";
+  font-family: var(--alright-font-family);
   font-size: 1.3rem;
   color: var(--color-background);
 

@@ -5,7 +5,7 @@
   }
 
   .blog-post-preview-title {
-    font-family: "Alright";
+    font-family: var(--alright-font-family);
     font-size: 1.6rem;
     margin-bottom: 0.4em;
 
@@ -25,7 +25,7 @@
   }
 
   .blog-post-preview-date {
-    font-family: "Alright";
+    font-family: var(--alright-font-family);
     color: var(--muted-text-color);
   }
 }
@@ -47,7 +47,7 @@
     padding: 0.2em 0.8em;
     border-radius: 1em;
     color: var(--reverse-text-color);
-    font-family: "Alright";
+    font-family: var(--alright-font-family);
     font-size: 0.8em;
   }
 

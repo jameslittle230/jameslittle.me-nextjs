@@ -1,7 +1,7 @@
 @layer components {
   .page-title {
     font-size: clamp(2.5rem, 1.5rem + 4vw, 4.5rem);
-    font-family: "Alright";
+    font-family: var(--alright-font-family);
     font-weight: 900;
     font-style: italic;
     color: white;
@@ -13,7 +13,7 @@
   }
 
   .page-title-subtitle {
-    font-family: "Alright";
+    font-family: var(--alright-font-family);
     color: var(--muted-reverse-text-color);
     font-size: 1.3em;
   }
