@@ -16,7 +16,7 @@ export const PageFooter = () => {
       },
       {
         href: "https://github.com/jameslittle230",
-        name: "Github",
+        name: "GitHub",
       },
       {
         href: "https://www.linkedin.com/in/james-little-230/",
