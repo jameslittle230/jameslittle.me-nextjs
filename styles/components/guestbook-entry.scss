@@ -58,6 +58,8 @@
 
 .guestbook-form {
   margin-bottom: var(--vertical-rhythm);
+  position: sticky;
+  top: 1em;
 }
 
 @layer components {
@@ -74,11 +76,16 @@
 
   .guestbook-entry-date {
     display: flex;
+    align-items: baseline;
     gap: 1em;
     transition: transform 0.5s ease-in-out;
+    color: currentColor;
+    text-decoration: none;
   }
 
   .guestbook-entry-date-absolute {
+    font-family: var(--mono-font-family);
+    font-size: 0.8em;
     opacity: 0;
     transition: opacity 0.3s ease-in-out 0.2s;
   }

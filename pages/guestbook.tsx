@@ -12,10 +12,10 @@ type GuestbookEntry = {
   name: string;
 };
 
+const apiURL = "https://api.jameslittle.me";
+
 export async function getStaticProps(_context: any) {
-  const entries: GuestbookEntry[] = await fetch(
-    "https://api.jameslittle.me/guestbook"
-  )
+  const entries: GuestbookEntry[] = await fetch(`${apiURL}/guestbook`)
     .then((r) => r.json())
     .then((json) => json.items);
   entries.reverse();
@@ -34,7 +34,11 @@ enum SubmissionState {
   SUCCESS,
 }
 
-const GuestbookForm = () => {
+const GuestbookForm = ({
+  setLastGuestbookSubmission,
+}: {
+  setLastGuestbookSubmission: Function;
+}) => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [url, setUrl] = useState("");
@@ -44,7 +48,7 @@ const GuestbookForm = () => {
     SubmissionState.UNSTARTED
   );
 
-  const [errorMessage, setErrorMessage] = useState("");
+  const [userMessage, setUserMessage] = useState("");
 
   const messageCharactersRemaining = MAX_MESSAGE_LENGTH - message.length;
 
@@ -65,7 +69,7 @@ const GuestbookForm = () => {
 
     setSubmissionState(SubmissionState.SUBMITTING);
 
-    fetch("http://localhost:8080/guestbook", {
+    fetch(`${apiURL}/guestbook`, {
       method: "post",
       headers: {
         Accept: "application/json",
@@ -80,14 +84,16 @@ const GuestbookForm = () => {
         console.log(text);
         if (response.ok) {
           setSubmissionState(SubmissionState.SUCCESS);
+          setUserMessage("Guestbook submission succeeded <3");
+          setLastGuestbookSubmission(new Date());
         } else {
           setSubmissionState(SubmissionState.ERRORED);
-          setErrorMessage(text);
+          setUserMessage(text);
         }
       })
       .catch((e) => {
         setSubmissionState(SubmissionState.ERRORED);
-        setErrorMessage(
+        setUserMessage(
           `Unknown Javascript error - please get in touch! Got \`${e.message}\``
         );
       });
@@ -95,7 +101,7 @@ const GuestbookForm = () => {
 
   return (
     <div className="guestbook-form">
-      {errorMessage && <p>{errorMessage}</p>}
+      {userMessage && <p>{userMessage}</p>}
       <form>
         <div className="form-field">
           <label htmlFor="name" className="required">
@@ -174,7 +180,7 @@ const GuestbookForm = () => {
 
 const fetchDynamicEntries = async (cursor: string) => {
   const entries: GuestbookEntry[] = await fetch(
-    `https://api.jameslittle.me/guestbook?after=${cursor}`
+    `${apiURL}/guestbook?after=${cursor}`
   )
     .then((r) => r.json())
     .then((json) => json.items);
@@ -184,16 +190,14 @@ const fetchDynamicEntries = async (cursor: string) => {
 
 export default function Guestbook({ entries }: { entries: GuestbookEntry[] }) {
   const [dynamicEntries, setDynamicEntries] = useState<GuestbookEntry[]>([]);
-  const [dynamicEntriesFetched, setDynamicEntriesFetched] = useState(false);
+  const [lastGuestbookSubmission, setLastGuestbookSubmission] =
+    useState<Date | null>(null);
 
   useEffect(() => {
-    if (!dynamicEntriesFetched) {
-      setDynamicEntriesFetched(true);
-      fetchDynamicEntries(entries[0].id).then((newEntries) =>
-        setDynamicEntries(newEntries)
-      );
-    }
-  }, [dynamicEntriesFetched, entries]);
+    fetchDynamicEntries(entries[0].id).then((newEntries) =>
+      setDynamicEntries(newEntries)
+    );
+  }, [entries, lastGuestbookSubmission]);
   return (
     <PageLayout title="Guestbook">
       <Grid>
@@ -204,9 +208,11 @@ export default function Guestbook({ entries }: { entries: GuestbookEntry[] }) {
           </p>
         </FullWidth>
 
-        <Subgrid weight="right">
+        <Subgrid weight="center">
           <Left>
-            <GuestbookForm />
+            <GuestbookForm
+              setLastGuestbookSubmission={setLastGuestbookSubmission}
+            />
           </Left>
           <Right>
             {dynamicEntries.concat(entries).map((entry) => (
@@ -234,10 +240,11 @@ const GuestbookEntryListItem = ({ entry }: { entry: GuestbookEntry }) => {
     : `calc(${absoluteDateWidth}px + 1em)`;
 
   return (
-    <div className="guestbook-entry-list-item">
+    <div className="guestbook-entry-list-item" id={entry.id}>
       <div className="guestbook-entry-list-item-header">
         <span className="guestbook-entry-name">{entry.name}</span>
-        <span
+        <a
+          href={`#${entry.id}`}
           className="guestbook-entry-date"
           style={{ transform: `translateX(${dateOffset})` }}
           onMouseOver={(_e) => {
@@ -256,10 +263,9 @@ const GuestbookEntryListItem = ({ entry }: { entry: GuestbookEntry }) => {
               "guestbook-entry-date-absolute-visible": absoluteDateVisible,
             })}
           >
-            {/* <span ref={absoluteDate} className="guestbook-entry-date-absolute"> */}
             {toIso(entry.created_at)}
           </span>
-        </span>
+        </a>
       </div>
       {entry.url && entry.url.length > 0 && (
         <div className="guestbook-entry-url">
