@@ -5,13 +5,9 @@ slug: 2021-work-setup
 blurb: "It's where I work, it's where I relax, it's where I plan my life, it's where I talk to friends, it's where I enjoy music, it's where I read the news, it's where I spend most of the hours of the day..."
 ---
 
-Hey, dear reader. It's been a hell of a year.
+As of August 2021, I officially work from Stripe's "Remote Hub" after being based in the San Francisco office since I started two years prior. I recently moved to the Boston area, a location where Stripe doesn't have an office. We moved into a two-bedroom apartment and turned one of those bedrooms into a joint office, where I do work during the day and where my girlfriend does schoolwork in the evening.
 
-While it was only pandemic-induced before, as of August 2021 I officially work from Stripe's Remote Hub, spurred by my recent move to the Boston area, a location where Stripe doesn't have an office. My girlfriend and I got a two-bedroom apartment and turned one of those bedrooms into a joint office, where I do work during the day and where she does schoolwork in the evening.
-
-I'll spare you most of my feelings about my transition to remote employment, except to say that I've signed myself up for _remote work_, not _more social isolation_. With my community well-vaccinated, I'm hoping to see friends, engage with my new surroundings, and start traveling again pending safety. In short, even though my method of work will continue the way it was during the most isolating parts of the pandemic, I'm hopeful that the rest of my life won't.
-
-Anyway. I'm remote now, and Stripe gives its remote employees a bit of money to set up their workspace. I find these types of post interesting, and I feel like I've done well with my setup and it might be worth sharing. Here's how I set up my area of the office.
+Anyway. I'm officially remote now, and Stripe gives its remote employees a bit of money to set up their workspace. I find these types of post interesting, and I feel like I've done well with my setup and it might be worth sharing. Here's how I set up my area of the office.
 
 {% figure layout="wide" caption="The whole thing" %}
 {% image src="2021-desk-post/DSC05389.jpg" /%}
@@ -75,7 +71,7 @@ Today, I use a [Rode PodMic](https://www.rode.com/podmic). It sounds a whole lot
 
 {% note title="March 2022 update" %}
 
-When I got new computers, I put the microphone on the other side of my desk. I also got the first-party wind screen for the Podmic which makes it sound slightly nicer.
+When I got new computers, I put the microphone on the other side of my desk. I also got the first-party wind screen for the Podmic which makes it sound slightly nicer, and (finally) got the PSA1.
 
 {% /note %}
 
@@ -116,8 +112,6 @@ A few more things I keep full-time on my desk:
 - A coaster, to cover up the rings on my desk from when I didn't use a coaster
 - A lamp with a LifX bulb in it. Usually warm white, I probably switch it to a fun color about once per month. I use Homekit automations to control it every single day, though
 
-## Friction
+## Conclusion
 
-For me, I've tried prioritizing so that my setup makes me do my best work. It should encourage me to work on the stuff that brings me the most joy, and should reduce the friction to get into and maintain a flow state (or hyperfocus, as the case may be, if my ADHD diagnosis from eight years ago still holds up). I think I'm mostly there? I have the tools I need (and then some) to do work for my job and spend some time on personal projects afterwards, and I have enough gadgets and toys that I can keep myself engaged and drawn in. I've turned my space into one that's really good for video communication, so my experience with computers is less solitary. I'm happy with how I've set things up in 2021, and I'm excited to see how the space will evolve in the year to come.
-
-If you've read this far, thank you!
+I've tried prioritizing so that my setup makes me do my best work. It should encourage me to work on the stuff that brings me the most joy, and should reduce the friction to get into and maintain a flow state. I think I'm mostly there? I have the tools I need (and then some) to do work for my job and spend some time on personal projects afterwards, and I have enough gadgets and toys that I can keep myself engaged and drawn in. I've turned my space into one that's really good for video communication, so my experience with computers is less solitary. I'm happy with how I've set things up in 2021, and I'm excited to see how the space will evolve in the year to come.
