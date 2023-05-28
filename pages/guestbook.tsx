@@ -10,6 +10,11 @@ type GuestbookEntry = {
   url: string;
   message: string;
   name: string;
+  reply?: {
+    name?: string;
+    message?: string;
+    emoji?: string;
+  };
 };
 
 const apiURL = "https://api.jameslittle.me";
@@ -18,6 +23,15 @@ export async function getStaticProps(_context: any) {
   const entries: GuestbookEntry[] = await fetch(`${apiURL}/guestbook`)
     .then((r) => r.json())
     .then((json) => json.items);
+  // entries.map((entry) => {
+  //   if (Math.random() < 0.5) {
+  //     entry.reply = {
+  //       name: "James Little",
+  //       message: "Thanks for signing my guestbook!",
+  //       emoji: "heart",
+  //     };
+  //   }
+  // });
   entries.reverse();
 
   return {
@@ -273,6 +287,12 @@ const GuestbookEntryListItem = ({ entry }: { entry: GuestbookEntry }) => {
         </div>
       )}
       <p className="guestbook-entry-message">{entry.message}</p>
+      {entry.reply && (
+        <div className="guestbook-entry-reply">
+          <p>{entry.reply.message}</p>
+          {entry.reply.emoji === "heart" ? "❤️" : null}
+        </div>
+      )}
     </div>
   );
 };

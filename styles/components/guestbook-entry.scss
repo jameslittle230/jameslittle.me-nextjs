@@ -113,6 +113,38 @@
 
   .guestbook-entry-message {
     margin-top: 0.25em;
+    margin-bottom: 0.25em;
     line-height: 1.3;
+  }
+
+  .guestbook-entry-reply {
+    background-color: hsla(var(--theme-hue), 4%, 21%);
+    color: var(--reverse-text-color);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0.5em;
+    font-family: var(--mono-font-family);
+    font-size: 0.8em;
+    transition: all 0.2s ease-in-out;
+    width: 2em;
+
+    position: absolute;
+    bottom: -3px;
+    right: -3px;
+    border-radius: 6px;
+
+    p {
+      margin: 0;
+      display: none;
+    }
+
+    &:hover {
+      width: calc(100%);
+
+      p {
+        display: block;
+      }
+    }
   }
 }
