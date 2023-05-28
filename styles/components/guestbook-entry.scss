@@ -5,11 +5,11 @@
     display: block;
 
     &.required:after {
-      color: var(--red);
+      color: var(--feedback-important);
       content: " \2605";
-      font-size: 0.6em;
+      font-size: 1em;
       line-height: 1rem;
-      vertical-align: middle;
+      vertical-align: top;
     }
   }
 
@@ -17,7 +17,7 @@
   textarea {
     padding: 0.3em 0.5em;
     width: 100%;
-    font-family: sans-serif;
+    font-family: var(--mono-font-family);
     border: 1px solid var(--muted-text-color);
     border-radius: 6px;
     font-size: 0.8em;
@@ -30,11 +30,11 @@
   color: var(--reverse-text-color);
   font-size: 1rem;
   font-family: var(--alright-font-family);
-  border: none;
   width: 100%;
   padding: 0.5em 0.8em;
   border-radius: 8px;
   cursor: pointer;
+  transition: background 0.2s ease-in-out, opacity 0.2s ease-in-out;
 
   &:hover {
     background: var(--color-60);
@@ -48,11 +48,12 @@
   &:disabled {
     background: var(--muted-text-color);
     cursor: not-allowed;
+    opacity: 0.5;
   }
 }
 
 .form-message {
-  font-family: sans-serif;
+  font-family: var(--mono-font-family);
   font-size: 0.8em;
 }
 
@@ -64,7 +65,7 @@
 
 @layer components {
   .guestbook-entry-list-item {
-    border: 2px solid var(--offset-background);
+    border: 2px solid var(--color-border);
     padding: 1em;
     margin-bottom: 1em;
     border-radius: 8px;

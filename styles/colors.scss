@@ -3,7 +3,7 @@ body {
   --blue-hue: 210;
   --orange-hue: 351;
 
-  --red: #dc332a;
+  --feedback-important: #dc332a;
 
   --color-10: hsla(var(--theme-hue), 27%, 81%);
   --color-20: hsla(var(--theme-hue), 31%, 65%);
@@ -22,4 +22,5 @@ body {
   --muted-text-color: hsla(var(--theme-hue), 3%, 42%);
   --reverse-text-color: hsla(var(--theme-hue), 6%, 98%);
   --muted-reverse-text-color: hsla(var(--theme-hue), 7%, 60%);
+  --color-border: hsla(var(--theme-hue), 4%, 86%);
 }
