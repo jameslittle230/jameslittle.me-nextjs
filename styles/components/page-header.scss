@@ -2,6 +2,8 @@
   font-family: var(--alright-font-family);
   font-size: 1.5rem;
   margin-bottom: 0.3em;
+  color: var(--color-10);
+
   a {
     text-decoration: none;
     color: inherit;
@@ -22,12 +24,12 @@
   }
 }
 
-.page-header-list-item,
-.page-header-nav li {
+.page-header-list-item {
   display: inline;
   margin-right: 2em;
   font-family: var(--alright-font-family);
   text-transform: lowercase;
+  color: var(--color-10);
 
   @media only screen and (max-width: 550px) {
     margin-right: 1.25em;
@@ -38,4 +40,8 @@
     text-decoration: none;
     color: inherit;
   }
+}
+
+.page-header-list-item-active {
+  color: var(--color-5);
 }
