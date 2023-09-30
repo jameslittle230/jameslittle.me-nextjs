@@ -2,7 +2,13 @@ import Markdoc from "@markdoc/markdoc";
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
-import { FullWidth, Grid, Left, Right, Subgrid } from "../src/components/Grid";
+import {
+  FullWidth,
+  Grid,
+  Left,
+  Right,
+  Subgrid,
+} from "../src/components/PageGrid";
 import { PageFooter } from "../src/components/page/PageFooter";
 import { PageHeader } from "../src/components/page/PageHeader";
 import { PageTitle } from "../src/components/page/PageTitle";

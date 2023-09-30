@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { PageLayout } from "../layouts/PageLayout";
-import { FullWidth, Grid } from "../src/components/Grid";
+import { FullWidth, Grid } from "../src/components/PageGrid";
 
 export default function Pages() {
   return (

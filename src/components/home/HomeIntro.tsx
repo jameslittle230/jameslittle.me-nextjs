@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Grid, Subgrid, Left, Right } from "../Grid";
+import { Grid, Subgrid, Left, Right } from "../PageGrid";
 import { RacingStripe } from "../RacingStripe";
 export const HomeIntro = () => (
   <>

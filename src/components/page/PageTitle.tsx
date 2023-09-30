@@ -1,5 +1,5 @@
 import classnames from "classnames";
-import { FullWidth, Grid } from "../Grid";
+import { FullWidth, Grid } from "../PageGrid";
 
 export const PageTitle = ({
   title,

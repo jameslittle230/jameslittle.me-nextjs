@@ -1,5 +1,5 @@
 import { PageLayout } from "../../layouts/PageLayout";
-import { FullWidth, Grid } from "../../src/components/Grid";
+import { FullWidth, Grid } from "../../src/components/PageGrid";
 
 export async function getStaticProps(_context: any) {
   return {

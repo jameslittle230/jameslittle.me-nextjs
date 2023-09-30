@@ -1,6 +1,6 @@
 import { PageLayout } from "../../layouts/PageLayout";
 import { BlogPostPreview } from "../../src/components/BlogPostPreview";
-import { FullWidth, Grid } from "../../src/components/Grid";
+import { FullWidth, Grid } from "../../src/components/PageGrid";
 import Theme from "../../src/components/Theme";
 import { fileService } from "../../src/markdoc/fetch-files";
 import { BlogPost, DehydratedBlogPost } from "../../src/models/blog-post";

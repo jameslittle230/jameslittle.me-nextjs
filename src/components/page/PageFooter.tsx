@@ -1,5 +1,5 @@
 import React from "react";
-import { FullWidth, Grid, Left, Right, Subgrid } from "../Grid";
+import { FullWidth, Grid, Left, Right, Subgrid } from "../PageGrid";
 import { RacingStripe } from "../RacingStripe";
 
 export const PageFooter = () => {

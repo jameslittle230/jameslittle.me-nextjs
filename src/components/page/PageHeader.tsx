@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { FullWidth, Grid } from "../Grid";
+import { FullWidth, Grid } from "../PageGrid";
 import classnames from "classnames";
 import { RacingStripe } from "../RacingStripe";
 

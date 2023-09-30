@@ -1,5 +1,5 @@
 import { PageLayout } from "../layouts/PageLayout";
-import { FullWidth, Grid } from "../src/components/Grid";
+import { FullWidth, Grid } from "../src/components/PageGrid";
 import { ProjectPreview } from "../src/components/ProjectPreview";
 import Theme from "../src/components/Theme";
 import { fileService } from "../src/markdoc/fetch-files";

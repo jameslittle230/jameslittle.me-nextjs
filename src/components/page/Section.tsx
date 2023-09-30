@@ -1,4 +1,4 @@
-import { Background, FullWidth, Grid } from "../Grid";
+import { Background, FullWidth, Grid } from "../PageGrid";
 
 export const Section = ({
   background,
