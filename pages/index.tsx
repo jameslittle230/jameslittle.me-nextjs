@@ -70,7 +70,10 @@ export default function Home({
       <Section background="offset">
         <h2 className={"section-title"}>Blog</h2>
         {blogPosts.map((post) => (
-          <BlogPostPreview key={JSON.stringify(post.staticPath)} post={post} />
+          <BlogPostPreview
+            key={JSON.stringify(post.staticPath())}
+            post={post}
+          />
         ))}
         <SeeMoreLink href="/blog" />
       </Section>
@@ -79,7 +82,7 @@ export default function Home({
         <h2 className={"section-title"}>Projects</h2>
         <div className="projects-grid">
           {displayProjects.map((project) => (
-            <ProjectPreview project={project} key={project.metadata.slug} />
+            <ProjectPreview key={project.metadata.slug} project={project} />
           ))}
         </div>
         <SeeMoreLink href="/projects" verb="See" />
