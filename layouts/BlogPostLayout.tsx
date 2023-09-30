@@ -33,7 +33,7 @@ export const BlogPostLayout = ({
   return (
     <>
       <Head>
-        <title>{post.metadata.title} - jameslittle.me</title>
+        <title>{`${post.metadata.title} - jameslittle.me`}</title>
       </Head>
       <PageHeader />
       <PageTitle
