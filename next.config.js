@@ -3,6 +3,7 @@ module.exports = {
   reactStrictMode: true,
   swcMinify: true,
   pageExtensions: ["tsx", "md"],
+  output: "export",
   images: {
     remotePatterns: [
       {
