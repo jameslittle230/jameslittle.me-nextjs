@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { BlogPost } from "../models/blog-post";
-import { Left, Right, Subgrid } from "./grid";
+import { Left, Right, Subgrid } from "./Grid";
 
 export const BlogPostPreview = ({ post }: { post: BlogPost }) => {
   const { title } = post.metadata;

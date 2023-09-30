@@ -1,6 +1,6 @@
 import Airtable from "airtable";
 import { PageLayout } from "../layouts/PageLayout";
-import { Grid, Right, Subgrid } from "../src/components/grid";
+import { Grid, Right, Subgrid } from "../src/components/Grid";
 
 type Book = {
   title: string;

@@ -2,7 +2,7 @@ import Markdoc from "@markdoc/markdoc";
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
-import { FullWidth, Grid, Left, Right, Subgrid } from "../src/components/grid";
+import { FullWidth, Grid, Left, Right, Subgrid } from "../src/components/Grid";
 import { PageFooter } from "../src/components/page/PageFooter";
 import { PageHeader } from "../src/components/page/PageHeader";
 import { PageTitle } from "../src/components/page/PageTitle";
@@ -56,8 +56,7 @@ export const BlogPostLayout = ({
             <div className="blog-post-aside">
               <p>
                 I&apos;m James Little, a software engineer and design enthusiast
-                based in Cambridge, MA. I work at Stripe on the Docs team, and I
-                build a web search tool called <a href="https://stork-search.net">Stork Search</a>.
+                based in Cambridge, MA.
               </p>
             </div>
           </Left>

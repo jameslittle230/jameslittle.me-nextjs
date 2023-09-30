@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { useState, useRef, useCallback, useEffect } from "react";
 import { PageLayout } from "../layouts/PageLayout";
-import { FullWidth, Grid, Left, Right, Subgrid } from "../src/components/grid";
+import { FullWidth, Grid, Left, Right, Subgrid } from "../src/components/Grid";
 import { relative, toIso } from "../src/utils/relative-date";
 
 type GuestbookEntry = {
