@@ -61,6 +61,13 @@ export const BlogPostLayout = ({
             ) : null}
             <div className="blog-post-aside">
               <p>
+                Love this? Hate this? Go{" "}
+                <Link href={"/guestbook"}>sign the guestbook</Link> and let me
+                know!
+              </p>
+            </div>
+            <div className="blog-post-aside">
+              <p>
                 I&apos;m James Little, a software engineer and design enthusiast
                 based in Cambridge, MA.
               </p>

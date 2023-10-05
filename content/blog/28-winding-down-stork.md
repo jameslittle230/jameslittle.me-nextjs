@@ -5,9 +5,7 @@ slug: winding-down-stork
 blurb: "I'll be stopping Stork development and support for the foreseeable future."
 ---
 
-Hi, friends.
-
-I'm no longer able to work on Stork to the degree the project and its users deserve, and because of this, I will be stopping my Stork development and support for the foreseeable future.
+Hi, friends. I'm no longer able to work on Stork to the degree the project and its users deserve, and because of this, I will be stopping my Stork development and support for the foreseeable future.
 
 I've shut down any mechanism through which people can give me money for working on Stork (i.e. Ko-Fi and the "buy a sticker" page), I've archived many auxiliary repositories related to the project, and I'll be closing the Discord server by the end of the month.
 

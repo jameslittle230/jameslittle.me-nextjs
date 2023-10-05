@@ -5,7 +5,7 @@ slug: 2021-work-setup
 blurb: "It's where I work, it's where I relax, it's where I plan my life, it's where I talk to friends, it's where I enjoy music, it's where I read the news, it's where I spend most of the hours of the day..."
 ---
 
-As of August 2021, I officially work from Stripe's "Remote Hub" after being based in the San Francisco office since I started two years prior. I recently moved to the Boston area, a location where Stripe doesn't have an office. We moved into a two-bedroom apartment and turned one of those bedrooms into a joint office, where I do work during the day and where my girlfriend does schoolwork in the evening.
+As of August 2021, I officially work from Stripe's "Remote Hub" after being based in the San Francisco office. This transition corresponds with my move to the Boston area, a location where Stripe doesn't have an office. We moved into a two-bedroom apartment and turned one of those bedrooms into a joint office, where I do work during the day and where my girlfriend does schoolwork in the evening.
 
 Anyway. I'm officially remote now, and Stripe gives its remote employees a bit of money to set up their workspace. I find these types of post interesting, and I feel like I've done well with my setup and it might be worth sharing. Here's how I set up my area of the office.
 

@@ -6,8 +6,6 @@ import { Project } from "../models/project";
 
 const fs = require("mz/fs");
 
-const CACHE_ENABLED = true;
-
 export type Frontmatter = {
   date: string;
   title: string;
@@ -33,13 +31,9 @@ class FileService {
   ): Promise<ContentFile> => {
     let files = [];
 
-    if (CACHE_ENABLED && this.files[directory]) {
-      files = this.files[directory];
-    } else {
-      const remoteFetchedFiles = await this.fetchFromFilesystem(directory);
-      this.files[directory] = remoteFetchedFiles;
-      files = this.files[directory];
-    }
+    const remoteFetchedFiles = await this.fetchFromFilesystem(directory);
+    this.files[directory] = remoteFetchedFiles;
+    files = this.files[directory];
 
     const file = files.find((file) => file.slug() === slug);
     if (file) {
@@ -59,13 +53,9 @@ class FileService {
   listFiles = async (directory: Directory): Promise<ContentFile[]> => {
     let files = [];
 
-    if (CACHE_ENABLED && this.files[directory]) {
-      files = this.files[directory];
-    } else {
-      const remoteFetchedFiles = await this.fetchFromFilesystem(directory);
-      this.files[directory] = remoteFetchedFiles;
-      files = this.files[directory];
-    }
+    const remoteFetchedFiles = await this.fetchFromFilesystem(directory);
+    this.files[directory] = remoteFetchedFiles;
+    files = this.files[directory];
 
     return files;
   };
