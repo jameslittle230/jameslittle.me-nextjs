@@ -67,7 +67,8 @@
 
 @font-face {
   font-family: "jetbrains mono";
-  src: url("https://files.jameslittle.me/webfonts/jetbrains-mono/jetbrainsmono-regular-webfont.woff2")
+  src:
+    url("https://files.jameslittle.me/webfonts/jetbrains-mono/jetbrainsmono-regular-webfont.woff2")
       format("woff2"),
     url("https://files.jameslittle.me/webfonts/jetbrains-mono/jetbrainsmono-regular-webfont.woff")
       format("woff");
@@ -143,7 +144,7 @@ body {
     line-height: 1.4;
     --vertical-rhythm: 1.5em;
 
-    p:first-child::first-line {
+    > p:first-child::first-line {
       font-family: "equity caps", serif;
     }
 
