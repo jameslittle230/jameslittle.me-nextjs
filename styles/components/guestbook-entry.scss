@@ -7,20 +7,18 @@
     &.required:after {
       color: var(--red);
       content: " \2605";
-      font-size: 0.6em;
       line-height: 1rem;
-      vertical-align: middle;
     }
   }
 
   input,
   textarea {
-    padding: 0.3em 0.5em;
+    padding: 0.4em 0.6em;
     width: 100%;
-    font-family: sans-serif;
+    font-family: inherit;
     border: 1px solid var(--muted-text-color);
     border-radius: 6px;
-    font-size: 0.8em;
+    font-size: 1em;
   }
 }
 
@@ -47,12 +45,13 @@
 
   &:disabled {
     background: var(--muted-text-color);
+    opacity: 0.5;
     cursor: not-allowed;
+    transform: none;
   }
 }
 
 .form-message {
-  font-family: sans-serif;
   font-size: 0.8em;
 }
 
@@ -71,47 +70,83 @@
     display: flex;
     flex-direction: column;
     gap: 0.5em;
-    overflow: hidden;
-  }
 
-  .guestbook-entry-date {
-    display: flex;
-    align-items: baseline;
-    gap: 1em;
-    transition: transform 0.5s ease-in-out;
-    color: currentColor;
-    text-decoration: none;
-  }
-
-  .guestbook-entry-date-absolute {
-    font-family: var(--mono-font-family);
-    font-size: 0.8em;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out 0.2s;
-  }
-
-  .guestbook-entry-date-absolute-visible {
-    opacity: 1;
+    &.with-response {
+      margin-bottom: 3em;
+    }
   }
 
   .guestbook-entry-name {
     font-family: var(--alright-font-family);
     color: var(--color-50);
     font-size: 1.3em;
+    display: block;
+  }
+
+  .guestbook-entry-date {
+    color: currentColor;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .guestbook-entry-date-absolute {
+    font-family: var(--mono-font-family);
+    font-size: 0.8em;
+    // opacity: 0;
+    transition: opacity 0.3s ease-out;
+    position: absolute;
+    top: -2.5ex;
+    right: 1em;
+    background-color: var(--offset-background);
+    padding: 0.1em 0.5em;
+    margin-left: -0.5em;
+    border-radius: 2px;
+    opacity: 0;
+
+    .guestbook-entry-list-item:hover & {
+      opacity: 1;
+    }
   }
 
   .guestbook-entry-list-item-header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    gap: 2rem;
+    align-items: top;
   }
 
   .guestbook-entry-url {
-    font-size: 0.85em;
+    font-size: 0.8em;
+    font-family: var(--mono-font-family);
   }
 
   .guestbook-entry-message {
     margin-top: 0.25em;
     line-height: 1.3;
+  }
+
+  .guestbook-entry-response {
+    border: 2px solid var(--offset-background);
+    padding: 0.75em;
+    padding-left: 3em;
+    border-radius: 8px;
+    font-size: 0.9em;
+    position: relative;
+    margin-top: -4em;
+    top: 3em;
+    right: -1em;
+    background-color: white;
+    overflow: hidden;
+  }
+
+  .guestbook-entry-response-attribution {
+    position: absolute;
+    background-color: var(--color-50);
+    top: 0;
+    left: 0;
+    border-bottom-right-radius: 8px;
+    padding: 0.25em 0.5em;
+    font-family: var(--alright-font-family);
+    color: var(--reverse-text-color);
   }
 }

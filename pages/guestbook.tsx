@@ -9,6 +9,7 @@ import {
   Subgrid,
 } from "../src/components/PageGrid";
 import { relative, toIso } from "../src/utils/relative-date";
+import { GuestbookResponses } from "../src/utils/guestbook-responses";
 
 type GuestbookEntry = {
   id: string;
@@ -140,7 +141,7 @@ const GuestbookForm = ({
             Message:
           </label>
           <textarea
-            style={{ height: "8rem" }}
+            rows={10}
             id="message"
             placeholder="Say something nice!"
             value={message}
@@ -232,44 +233,22 @@ export default function Guestbook({ entries }: { entries: GuestbookEntry[] }) {
 }
 
 const GuestbookEntryListItem = ({ entry }: { entry: GuestbookEntry }) => {
-  const [absoluteDateWidth, setAbsoluteDateWidth] = useState(0);
-  const [absoluteDateVisible, setAbsoluteDateVisible] = useState(false);
-
-  const measureAbsoluteDateRef = useCallback((node: HTMLSpanElement) => {
-    if (node) {
-      setAbsoluteDateWidth(node.clientWidth);
-    }
-  }, []);
-
-  const dateOffset = absoluteDateVisible
-    ? 0
-    : `calc(${absoluteDateWidth}px + 1em)`;
-
+  const response = GuestbookResponses[entry.id];
   return (
-    <div className="guestbook-entry-list-item" id={entry.id}>
+    <div
+      className={classNames("guestbook-entry-list-item", {
+        ["with-response"]: !!response,
+      })}
+      id={entry.id}
+    >
+      <span className="guestbook-entry-date-absolute">
+        {toIso(entry.created_at)}
+      </span>
       <div className="guestbook-entry-list-item-header">
         <span className="guestbook-entry-name">{entry.name}</span>
-        <a
-          href={`#${entry.id}`}
-          className="guestbook-entry-date"
-          style={{ transform: `translateX(${dateOffset})` }}
-          onMouseOver={(_e) => {
-            setAbsoluteDateVisible(true);
-          }}
-          onMouseOut={(_e) => {
-            setAbsoluteDateVisible(false);
-          }}
-        >
+        <a href={`#${entry.id}`} className="guestbook-entry-date">
           <span className="guestbook-entry-date-relative">
             {relative(entry.created_at)}
-          </span>
-          <span
-            ref={measureAbsoluteDateRef}
-            className={classNames("guestbook-entry-date-absolute", {
-              "guestbook-entry-date-absolute-visible": absoluteDateVisible,
-            })}
-          >
-            {toIso(entry.created_at)}
           </span>
         </a>
       </div>
@@ -278,7 +257,15 @@ const GuestbookEntryListItem = ({ entry }: { entry: GuestbookEntry }) => {
           <a href={entry.url}>{entry.url}</a>
         </div>
       )}
+
       <p className="guestbook-entry-message">{entry.message}</p>
+
+      {response && (
+        <div className="guestbook-entry-response">
+          <span className="guestbook-entry-response-attribution">JL</span>{" "}
+          {response.message}
+        </div>
+      )}
     </div>
   );
 };

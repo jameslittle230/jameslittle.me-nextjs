@@ -1,11 +1,19 @@
 @layer components {
   .page-title {
-    font-size: clamp(2.5rem, 1.5rem + 4vw, 4.5rem);
     font-family: var(--alright-font-family);
+    font-size: 3.5rem;
+    letter-spacing: -0.03em;
+    line-height: 1.05;
     font-weight: 900;
     font-style: italic;
     color: white;
     margin: 0;
+
+    &.long {
+      @media only screen and (max-width: 550px) {
+        font-size: 2.75rem;
+      }
+    }
   }
 
   .page-title-top-space {

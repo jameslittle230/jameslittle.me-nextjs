@@ -5,7 +5,7 @@ export const HomeIntro = () => (
   <>
     <Grid background="color" style={{ paddingTop: "3rem" }}>
       <Subgrid weight="center">
-        <Left style={{ fontSize: "1.3em" }}>
+        <Left style={{ fontSize: "1.2em" }}>
           <p>I&apos;m a software engineer and design enthusiast.</p>
           <p>
             I&apos;m interested in how people interact with technology. I want
@@ -29,7 +29,7 @@ export const HomeIntro = () => (
     <RacingStripe level={20} />
     <Grid>
       <Subgrid weight="center">
-        <Left style={{ fontSize: "1.1em" }}>
+        <Left style={{ fontSize: "1.075em" }}>
           <p>
             I work at <a href="https://stripe.com">Stripe</a> on the{" "}
             <a href="https://stripe.com/docs">Docs Product</a> team, where I do

@@ -1,5 +1,5 @@
 import classnames from "classnames";
-import React, { FocusEventHandler, MouseEventHandler, useEffect } from "react";
+import React, { useEffect } from "react";
 
 const Footnote = ({ children }: any) => {
   const toggleRef = React.useRef<HTMLAnchorElement | null>(null);
@@ -23,8 +23,8 @@ const Footnote = ({ children }: any) => {
       const pVerticalOffset = tTop - pTop - pHeight - 5;
       console.log(pTop, pHeight, tTop, pVerticalOffset);
 
-      popoverRef.current.style.right = `${pHorizontalOffset}px`;
-      popoverRef.current.style.top = `${pVerticalOffset}px`;
+      popoverRef.current.style.right = `${Math.max(10, pHorizontalOffset)}px`;
+      popoverRef.current.style.top = `${Math.max(10, pVerticalOffset)}px`;
     }
   }, [popoverRef, toggleRef, popoverVisible]);
 

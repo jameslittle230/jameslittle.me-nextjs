@@ -53,8 +53,10 @@ body {
 }
 
 .section-title {
-  font-size: clamp(3rem, 2.5rem + 3vw, 4rem);
   font-family: var(--alright-font-family);
+  font-size: 3rem;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
   font-weight: 900;
   font-style: italic;
   color: var(--muted-text-color);

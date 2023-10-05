@@ -16,6 +16,7 @@ export const PageTitle = ({
         <h1
           className={classnames("page-title", {
             "page-title-top-space": topSpace,
+            long: title.length > 20,
           })}
         >
           {title}
